@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const Edit = () => {
+const EditSC = () => {
   const navigate = useNavigate();
 
   // State for Launch Time toggle ('now' or 'schedule')
@@ -196,4 +196,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default EditSC;

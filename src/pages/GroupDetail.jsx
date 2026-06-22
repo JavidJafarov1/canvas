@@ -18,10 +18,15 @@ import {
   ChevronsUpDown
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ExtendSCModal from '../components/modals/ExtendSCModal';
+import DisableSCModal from '../components/modals/DisableSCModal';
+import DisableAllModal from '../components/modals/DisableAllModal';
 
 const GroupDetail = () => {
   const [activeTab, setActiveTab] = useState('MON 12');
   const [showExtendModal, setShowExtendModal] = useState(false);
+  const [showDisableModal, setShowDisableModal] = useState(false);
+  const [showDisableAllModal, setShowDisableAllModal] = useState(false);
   const [selectedSC, setSelectedSC] = useState(null);
   const [selectedDuration, setSelectedDuration] = useState('6h');
 
@@ -118,7 +123,7 @@ const GroupDetail = () => {
       </div>
       <div className='px-[15px] py-[18px]'>
         {/* Launch new SC Button */}
-        <button className='w-full gradient-border-card rounded-xl p-2.5 flex items-center justify-between mb-3 text-left cursor-pointer transition-all hover:brightness-110' style={{ background: 'linear-gradient(163deg, rgba(0, 255, 149, 0.2) 0%, rgba(0, 255, 149, 0.04) 53.26%, rgba(0, 255, 149, 0.02) 100%), linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
+        <Link to={'/launch-sc'} className='w-full gradient-border-card rounded-xl p-2.5 flex items-center justify-between mb-3 text-left cursor-pointer transition-all hover:brightness-110' style={{ background: 'linear-gradient(163deg, rgba(0, 255, 149, 0.2) 0%, rgba(0, 255, 149, 0.04) 53.26%, rgba(0, 255, 149, 0.02) 100%), linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
           <div className='flex items-center gap-3'>
             <img src='/assets/images/vector12.png' alt='vector12' />
             <div>
@@ -126,21 +131,21 @@ const GroupDetail = () => {
             </div>
           </div>
           <ChevronRight size={18} className='text-[#ffffff4d]' />
-        </button>
+        </Link>
 
         {/* Dual Info Card (General / Premium) */}
         <div className='gradient-border-card rounded-xl mb-6 flex justify-between overflow-hidden divide-x divide-[#313444]' style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
           {/* General */}
-          <div className='p-2.5 flex items-center gap-3 hover:bg-white/[0.02] transition-colors cursor-pointer w-[49%]'>
+          <Link to={'/general'} className='p-2.5 flex items-center gap-3 hover:bg-white/[0.02] transition-colors cursor-pointer w-[49%]'>
             <img src='/assets/images/vector13.png' alt='vector13' className='w-10' />
             <div>
               <h4 className='text-sm font-semibold text-white leading-tight'>General</h4>
               <p className='text-[#8A8D9F] text-[11px] mt-0.5'>Basics</p>
             </div>
-          </div>
+          </Link>
 
           {/* Premium */}
-          <div className='p-2.5 flex items-center gap-3 hover:bg-white/[0.02] transition-colors cursor-pointer justify-between'>
+          <Link to={'/premium'} className='p-2.5 flex items-center gap-3 hover:bg-white/[0.02] transition-colors cursor-pointer justify-between'>
             <div className='flex items-center gap-3'>
               <img src='/assets/images/vector14.png' alt='vector14' className='w-10' />
               <div>
@@ -151,7 +156,7 @@ const GroupDetail = () => {
                 <p className='text-[#8A8D9F] text-[11px] mt-0.5'>Customization</p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* ACTIVE Section Header */}
@@ -164,7 +169,10 @@ const GroupDetail = () => {
               Active <span className='text-[#5A5D72]'>(5)</span>
             </h2>
           </div>
-          <button className='text-xs text-[#fff]/40 flex items-center gap-1 cursor-pointer'>
+          <button
+            onClick={() => setShowDisableAllModal(true)}
+            className='text-xs text-[#fff]/40 flex items-center gap-1 cursor-pointer'
+          >
             <img src='/assets/images/svg/plus.svg' alt='plus' />
             Disable all
           </button>
@@ -198,12 +206,19 @@ const GroupDetail = () => {
                 </div>
                 <div className='flex gap-4 text-[#5A5D72]'>
                   {sc.actions.includes('edit') && (
-                    <Link to="/edit" className='p-1 hover:text-white cursor-pointer transition-colors'>
+                    <Link to="/edit-sc" onClick={(e) => e.stopPropagation()} className='p-1 hover:text-white cursor-pointer transition-colors'>
                       <img src='/assets/images/svg/edit.svg' alt='edit' />
                     </Link>
                   )}
                   {sc.actions.includes('delete') && (
-                    <button className='p-1 hover:text-red-400 cursor-pointer transition-colors'>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedSC(sc);
+                        setShowDisableModal(true);
+                      }}
+                      className='p-1 hover:text-red-400 cursor-pointer transition-colors'
+                    >
                       <img src='/assets/images/svg/trash.svg' alt='delete' />
                     </button>
                   )}
@@ -381,97 +396,25 @@ const GroupDetail = () => {
         </div>
       </div>
 
-      {/* Extend SC Modal Overlay */}
-      {showExtendModal && selectedSC && (
-        <div className='fixed inset-y-0 left-1/2 -translate-x-1/2 max-w-[375px] w-full bg-[#0B0E21]/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn'>
-          <div
-            className='w-full max-w-[327px] rounded-xl p-8 flex flex-col items-center border border-white/10 justify-between'
-            style={{ background: 'linear-gradient(155.83deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 32.55%, rgba(135, 173, 240, 0.02) 61.12%), #0B0E21' }}
-          >
-            <div className='flex flex-col items-center w-full'>
-              {/* Top Indicator plus ring */}
-              <img src='/assets/images/vector22.png' alt='vector22' className='w-[58px] mb-4' />
+      <ExtendSCModal
+        isOpen={showExtendModal}
+        onClose={() => setShowExtendModal(false)}
+        selectedSC={selectedSC}
+        selectedDuration={selectedDuration}
+        setSelectedDuration={setSelectedDuration}
+      />
 
-              {/* Title & Subtitle */}
-              <h2 className='text-lg font-medium text-white text-center leading-tight mb-1'>Extend SC</h2>
-              <p className='text-xs text-white/40 text-center mb-4'>{selectedSC.title}</p>
+      <DisableSCModal
+        isOpen={showDisableModal}
+        onClose={() => setShowDisableModal(false)}
+        selectedSC={selectedSC}
+      />
 
-              {/* Separator line */}
-              <div className='w-full border-t border-white/10 border-dashed mb-4' />
-
-              {selectedSC.type === 'end_by_data' ? (
-                <>
-                  {/* Current End Information */}
-                  <div className='flex items-center gap-2 mb-5'>
-                    <img src='/assets/images/svg/calendar.svg' className='w-[20px] opacity-40' alt='calendar' />
-                    <span className='text-sm text-white'>Current End: 12:30, 11.01</span>
-                  </div>
-
-                  {/* Duration Selector Buttons */}
-                  <div className='grid grid-cols-4 gap-2 w-full mb-4'>
-                    {['1h', '3h', '6h', '12h', '1d', '2d', '3d', '7d'].map((duration) => (
-                      <button
-                        key={duration}
-                        onClick={() => setSelectedDuration(duration)}
-                        className={`py-1.5 rounded-full text-[13px] font-medium transition-all ${selectedDuration === duration
-                          ? 'text-[#87ADF0] border border-[#87ADF0]'
-                          : 'bg-white/5 gradient-border-card text-white border border-transparent hover:bg-[#2A2D40]'
-                          }`}
-                      >
-                        {duration}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Select Date Link */}
-                  <button className='text-sm font-semibold text-[#87ADF0] hover:text-[#729EE8] transition-colors cursor-pointer mb-2'>
-                    Select date and time
-                  </button>
-                </>
-              ) : (
-                <>
-                  {/* Current Target Information */}
-                  <div className='flex items-center gap-2.5 mb-4'>
-                    <img src='/assets/images/svg/star.svg' className='w-5 opacity-70' alt='star' />
-                    <span className='text-sm text-white'>Current target: {selectedSC.totalUserCount || '150'} subscribers</span>
-                  </div>
-
-                  {/* Add Subscribers Dropdown Selector */}
-                  <div className='flex items-center justify-between bg-[#0B0E21]/20 border border-white/10 rounded-full h-[44px] px-4 text-sm text-white/40 w-full mb-4 cursor-pointer hover:bg-[#0b0e21]/40 transition-colors'>
-                    <div className='flex items-center gap-2.5'>
-                      <img src='/assets/images/svg/user.svg' className='w-5 opacity-40' alt='user' />
-                      <span className='text-white/60 font-medium'>Add subscribers</span>
-                    </div>
-                    <ChevronsUpDown size={15} className='opacity-40 text-white shrink-0' />
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Bottom Actions */}
-            <div className='flex gap-3 w-full'>
-              <button
-                onClick={() => {
-                  setShowExtendModal(false);
-                }}
-                className='flex-1 h-[44px] text-white font-semibold text-[15px] rounded-[30px] border border-white/10 flex items-center justify-center cursor-pointer active:scale-95 transition-all'
-                style={{ background: 'linear-gradient(128.85deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 53.26%, rgba(135, 173, 240, 0.2) 100%)' }}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => {
-                  setShowExtendModal(false);
-                }}
-                className='flex-1 h-[44px] text-[#0B0E21] font-bold text-[15px] rounded-[30px] bg-[#87ADF0] hover:bg-[#729EE8] flex items-center justify-center cursor-pointer active:scale-95 transition-all'
-              >
-                Extend
-              </button>
-            </div>
-
-          </div>
-        </div>
-      )}
+      <DisableAllModal
+        isOpen={showDisableAllModal}
+        onClose={() => setShowDisableAllModal(false)}
+        count={5}
+      />
 
     </div>
   );

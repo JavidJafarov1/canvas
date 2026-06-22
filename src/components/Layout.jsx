@@ -25,8 +25,8 @@ const Layout = ({ children, showNavbar = true }) => {
               <img src={location.pathname === '/tasks' ? '/assets/images/menu2-active.png' : '/assets/images/menu2.png'} alt="tasks" className="w-[24px] h-[24px] object-contain" />
             </Link>
 
-            <Link to="/edit" className={`w-full h-[48px] flex items-center justify-center rounded-[20px] transition-all ${location.pathname === '/edit' ? 'bg-[#87ADF0] shadow-[0_0_15px_rgba(143,170,255,0.4)]' : ''}`}>
-              <img src={location.pathname === '/edit' ? '/assets/images/menu3-active.png' : '/assets/images/menu3.png'} alt="edit" className="w-[24px] h-[24px] object-contain" />
+            <Link to="/task-list" className={`w-full h-[48px] flex items-center justify-center rounded-[20px] transition-all ${location.pathname === '/task-list' ? 'bg-[#87ADF0] shadow-[0_0_15px_rgba(143,170,255,0.4)]' : ''}`}>
+              <img src={location.pathname === '/task-list' ? '/assets/images/menu3-active.png' : '/assets/images/menu3.png'} alt="edit" className="w-[24px] h-[24px] object-contain" />
             </Link>
 
             <Link to="/profile" className={`w-full h-[48px] flex items-center justify-center rounded-[20px] transition-all ${location.pathname === '/profile' ? 'bg-[#87ADF0] shadow-[0_0_15px_rgba(143,170,255,0.4)]' : ''}`}>
