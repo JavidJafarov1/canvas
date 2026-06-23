@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Search, Link2, Globe, Crown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search, Link2, Crown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const SelectChannel = () => {
@@ -8,13 +8,13 @@ const SelectChannel = () => {
 
   const channels = [
     { id: 1, title: 'Crypto Signals VIP', subtitle: '-1001987654321', type: 'link', icon: Link2 },
-    { id: 2, title: 'Tech News UA', subtitle: '@technews_ua', type: 'globe', icon: Globe },
+    { id: 2, title: 'Tech News UA', subtitle: '@technews_ua', type: 'globe', icon: '/assets/images/svg/Planet 3.svg' },
     { id: 3, title: 'NFT Community', subtitle: '-1001987654321', type: 'link', icon: Link2 },
-    { id: 4, title: 'Premium Content', subtitle: '-1001987654321', type: 'crown', icon: Crown },
+    { id: 4, title: 'Premium Content', subtitle: '-1001987654321', type: 'crown', icon: '/assets/images/svg/Crown Line.svg' },
     { id: 5, title: 'Crypto Signals VIP', subtitle: '-1001987654321', type: 'link', icon: Link2 },
-    { id: 6, title: 'Tech News UA', subtitle: '@technews_ua', type: 'globe', icon: Globe },
+    { id: 6, title: 'Tech News UA', subtitle: '@technews_ua', type: 'globe', icon: '/assets/images/svg/Planet 3.svg' },
     { id: 7, title: 'NFT Community', subtitle: '-1001987654321', type: 'link', icon: Link2 },
-    { id: 8, title: 'Premium Content', subtitle: '-1001987654321', type: 'crown', icon: Crown },
+    { id: 8, title: 'Premium Content', subtitle: '-1001987654321', type: 'crown', icon: '/assets/images/svg/Crown Line.svg' },
   ];
 
   const filteredChannels = channels.filter(channel => 
@@ -68,7 +68,11 @@ const SelectChannel = () => {
                   className='w-[44px] h-[44px] rounded-full flex items-center justify-center border border-[#87ADF0]/15 text-[#87ADF0]'
                   style={{ background: 'linear-gradient(128.85deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 53.26%, rgba(135, 173, 240, 0.2) 100%)' }}
                 >
-                  <IconComponent size={20} className='text-[#87ADF0]' />
+                  {typeof channel.icon === 'string' ? (
+                    <img src={channel.icon} alt={channel.title} className="w-5 h-5 object-contain" />
+                  ) : (
+                    <IconComponent size={20} className='text-[#87ADF0]' />
+                  )}
                 </div>
                 
                 {/* Text details */}

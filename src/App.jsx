@@ -11,13 +11,45 @@ import TaskList from "./pages/TaskList";
 import CreateTask from "./pages/CreateTask";
 import ChannelSub from "./pages/ChannelSub";
 import SelectChannelPage from "./pages/SelectChannelPage";
-import AudienceSetup from "./pages/AudienceSetup";
-import TaskPricePage from "./pages/TaskPricePage";
-import PostLinkPage from "./pages/PostLinkPage";
 import BotSetupPage from "./pages/BotSetupPage";
 import SelectBotPage from "./pages/SelectBotPage";
 import BotTaskTypePage from "./pages/BotTaskTypePage";
-import TaskSuccess from "./pages/TaskSuccess";
+import DepositBalance from "./pages/DepositBalance";
+import ReferralSystem from "./pages/ReferralSystem";
+import LevelSystem from "./pages/LevelSystem";
+import MyTasks from "./pages/MyTasks";
+import TaskDetail from "./pages/TaskDetail";
+import AddExecutions from "./pages/AddExecutions";
+import ChangePrice from "./pages/ChangePrice";
+
+// Bot Flow
+import BotAudienceSetup from "./pages/BotAudienceSetup";
+import BotTaskPricePage from "./pages/BotTaskPricePage";
+import BotTaskSuccess from "./pages/BotTaskSuccess";
+
+// Views Flow
+import ViewPostLinkPage from "./pages/ViewPostLinkPage";
+import ViewAudienceSetup from "./pages/ViewAudienceSetup";
+import ViewTaskPricePage from "./pages/ViewTaskPricePage";
+import ViewTaskSuccess from "./pages/ViewTaskSuccess";
+
+// Reactions Flow
+import ReactionPostLinkPage from "./pages/ReactionPostLinkPage";
+import ReactionAudienceSetup from "./pages/ReactionAudienceSetup";
+import ReactionTaskPricePage from "./pages/ReactionTaskPricePage";
+import ReactionTaskSuccess from "./pages/ReactionTaskSuccess";
+
+// Channel Subscription Flow
+import ChannelAudienceSetup from "./pages/ChannelAudienceSetup";
+import ChannelTaskPricePage from "./pages/ChannelTaskPricePage";
+import ChannelTaskSuccess from "./pages/ChannelTaskSuccess";
+
+// Premium Boost Flow
+import PremiumBoostSub from "./pages/PremiumBoostSub";
+import PremiumBoostDuration from "./pages/PremiumBoostDuration";
+import PremiumBoostAudience from "./pages/PremiumBoostAudience";
+import PremiumBoostPrice from "./pages/PremiumBoostPrice";
+import PremiumBoostSuccess from "./pages/PremiumBoostSuccess";
 import LaunchSC from "./pages/LaunchSC";
 import SelectChannel from "./pages/SelectChannel";
 import SelectBot from "./pages/SelectBot";
@@ -34,6 +66,17 @@ import PremiumCheck from "./pages/PremiumCheck";
 import Whitelist from "./pages/Whitelist";
 import PromoText from "./pages/PromoText";
 import EntryCheck from "./pages/EntryCheck";
+import ReactionSetupPage from "./pages/ReactionSetupPage";
+import DurationSetupPage from "./pages/DurationSetupPage";
+import AutoTasks from "./pages/AutoTasks";
+import AutoTasksAddChannel from "./pages/AutoTasksAddChannel";
+import AutoTasksBotWarning from "./pages/AutoTasksBotWarning";
+import AutoTasksConfig from "./pages/AutoTasksConfig";
+import AutoTasksConfigViews from "./pages/AutoTasksConfigViews";
+import AutoTasksConfigReactions from "./pages/AutoTasksConfigReactions";
+import ExecuteTasksPage from "./pages/ExecuteTasksPage";
+import ExecuteChannelSub from "./pages/ExecuteChannelSub";
+
 
 function App() {
   return (
@@ -49,15 +92,51 @@ function App() {
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/task-list" element={<TaskList />} />
         <Route path="/create-task" element={<CreateTask />} />
+        <Route path="/reaction-setup" element={<ReactionSetupPage />} />
+        <Route path="/duration-setup" element={<DurationSetupPage />} />
+        <Route path="/auto-tasks" element={<AutoTasks />} />
+        <Route path="/auto-tasks/add" element={<AutoTasksAddChannel />} />
+        <Route path="/auto-tasks/warning" element={<AutoTasksBotWarning />} />
+        <Route path="/auto-tasks/config" element={<AutoTasksConfig />} />
+        <Route path="/auto-tasks/config/views" element={<AutoTasksConfigViews />} />
+        <Route path="/auto-tasks/config/reactions" element={<AutoTasksConfigReactions />} />
+        <Route path="/execute-tasks" element={<ExecuteTasksPage />} />
+        <Route path="/execute-tasks/channel-sub" element={<ExecuteChannelSub />} />
         <Route path="/channel-sub" element={<ChannelSub />} />
         <Route path="/select-channel-page" element={<SelectChannelPage />} />
-        <Route path="/audience-setup" element={<AudienceSetup />} />
-        <Route path="/task-price" element={<TaskPricePage />} />
-        <Route path="/post-link" element={<PostLinkPage />} />
+        {/* Views Flow */}
+        <Route path="/view-post-link" element={<ViewPostLinkPage />} />
+        <Route path="/view-audience-setup" element={<ViewAudienceSetup />} />
+        <Route path="/view-task-price" element={<ViewTaskPricePage />} />
+        <Route path="/view-task-success" element={<ViewTaskSuccess />} />
+
+        {/* Reactions Flow */}
+        <Route path="/reaction-post-link" element={<ReactionPostLinkPage />} />
+        <Route path="/reaction-audience-setup" element={<ReactionAudienceSetup />} />
+        <Route path="/reaction-task-price" element={<ReactionTaskPricePage />} />
+        <Route path="/reaction-task-success" element={<ReactionTaskSuccess />} />
+
+        {/* Channel Subscription Flow */}
+        <Route path="/channel-audience-setup" element={<ChannelAudienceSetup />} />
+        <Route path="/channel-task-price" element={<ChannelTaskPricePage />} />
+        <Route path="/channel-task-success" element={<ChannelTaskSuccess />} />
+
+        {/* Premium Boost Flow */}
+        <Route path="/premium-boost" element={<PremiumBoostSub />} />
+        <Route path="/premium-boost/duration" element={<PremiumBoostDuration />} />
+        <Route path="/premium-boost/audience" element={<PremiumBoostAudience />} />
+        <Route path="/premium-boost/price" element={<PremiumBoostPrice />} />
+        <Route path="/premium-boost/success" element={<PremiumBoostSuccess />} />
+
         <Route path="/bot-setup" element={<BotSetupPage />} />
         <Route path="/select-bot-page" element={<SelectBotPage />} />
         <Route path="/bot-task-type" element={<BotTaskTypePage />} />
-        <Route path="/task-success" element={<TaskSuccess />} />
+
+        {/* Bot Flow */}
+        <Route path="/bot-audience-setup" element={<BotAudienceSetup />} />
+        <Route path="/bot-task-price" element={<BotTaskPricePage />} />
+        <Route path="/bot-task-success" element={<BotTaskSuccess />} />
+
         <Route path="/launch-sc" element={<LaunchSC />} />
         <Route path="/select-channel" element={<SelectChannel />} />
         <Route path="/select-bot" element={<SelectBot />} />
@@ -74,6 +153,13 @@ function App() {
         <Route path="/whitelist" element={<Whitelist />} />
         <Route path="/promo-text" element={<PromoText />} />
         <Route path="/entry-check" element={<EntryCheck />} />
+        <Route path="/deposit-balance" element={<DepositBalance />} />
+        <Route path="/referral-system" element={<ReferralSystem />} />
+        <Route path="/level-system" element={<LevelSystem />} />
+        <Route path="/my-tasks" element={<MyTasks />} />
+        <Route path="/task-detail" element={<TaskDetail />} />
+        <Route path="/add-executions" element={<AddExecutions />} />
+        <Route path="/change-price" element={<ChangePrice />} />
       </Routes>
     </Router>
   );

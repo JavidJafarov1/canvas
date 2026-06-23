@@ -24,7 +24,7 @@ const CreateTask = () => {
       title: 'Налаштування Авто-завдань',
       icon: <img src='/assets/images/vector13.png' alt='vector13' className='w-[44px]' />,
       hasSeparatorAfter: false,
-      to: '#'
+      to: '/auto-tasks'
     },
     {
       id: 'my_tasks',
@@ -52,7 +52,7 @@ const CreateTask = () => {
       title: 'Перегляд постів',
       icon: <img src='/assets/images/vector27.png' alt='vector13' className='w-[44px]' />,
       hasSeparatorAfter: false,
-      to: '/post-link'
+      to: '/view-post-link'
     },
     {
       id: 'go_to_bot',
@@ -66,14 +66,14 @@ const CreateTask = () => {
       title: 'Поставити реакції',
       icon: <img src='/assets/images/vector29.png' alt='vector13' className='w-[44px]' />,
       hasSeparatorAfter: false,
-      to: '#'
+      to: '/reaction-post-link'
     },
     {
       id: 'premium_boost',
       title: 'Premium boost',
       icon: <img src='/assets/images/vector30.png' alt='vector13' className='w-[44px]' />,
       hasSeparatorAfter: false,
-      to: '#'
+      to: '/premium-boost'
     }
   ];
 
@@ -118,6 +118,7 @@ const CreateTask = () => {
               <React.Fragment key={option.id}>
                 <CardWrapper
                   to={option.to !== '#' ? option.to : undefined}
+                  state={option.state}
                   className='gradient-border-card rounded-2xl p-2.5 flex items-center justify-between cursor-pointer hover:brightness-110 active:scale-[0.99] transition-all block text-left'
                   style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
                 >

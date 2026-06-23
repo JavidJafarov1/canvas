@@ -68,22 +68,21 @@ const BotTaskTypePage = () => {
 
         {/* Task Type Cards */}
         <div
-          className="gradient-border-card rounded-[20px] p-4 flex flex-col gap-2 mb-3"
+          className="gradient-border-card rounded-[20px] p-3 flex flex-col gap-2 mb-3"
           style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)' }}
         >
           {/* Simple launch option */}
           <button
             onClick={() => setTaskType('simple')}
-            className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer"
+            className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer gradient-border-card"
             style={{
               background: taskType === 'simple'
                 ? 'linear-gradient(135deg, rgba(135,173,240,0.12) 0%, rgba(135,173,240,0.06) 100%)'
                 : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${taskType === 'simple' ? 'rgba(135,173,240,0.3)' : 'rgba(255,255,255,0.06)'}`,
             }}
           >
             <div className="flex items-center gap-3">
-              <img src="/assets/images/vector28.png" alt="bot" className="w-[44px]" />
+              <img src="/assets/images/vector36.png" alt="bot" className="w-[44px]" />
               <div className="text-left">
                 <p className="text-sm font-semibold text-white">Запуск бота</p>
                 <p className="text-[11px] text-white/40">Користувач натискає /start у вашому боті</p>
@@ -97,16 +96,15 @@ const BotTaskTypePage = () => {
           {/* With conditions option */}
           <button
             onClick={() => setTaskType('conditions')}
-            className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer"
+            className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer gradient-border-card"
             style={{
               background: taskType === 'conditions'
                 ? 'linear-gradient(135deg, rgba(135,173,240,0.12) 0%, rgba(135,173,240,0.06) 100%)'
                 : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${taskType === 'conditions' ? 'rgba(135,173,240,0.3)' : 'rgba(255,255,255,0.06)'}`,
             }}
           >
             <div className="flex items-center gap-3">
-              <img src="/assets/images/vector33.png" alt="conditions" className="w-[44px]" />
+              <img src="/assets/images/vector37.png" alt="vector37" className="w-[44px]" />
               <div className="text-left">
                 <p className="text-sm font-semibold text-white">З додатковими умовами</p>
                 <p className="text-[11px] text-white/40">Запуск бота + виконання додаткових дій</p>
@@ -116,60 +114,54 @@ const BotTaskTypePage = () => {
               {taskType === 'conditions' && <div className="w-2 h-2 rounded-full bg-[#0B0E21]" />}
             </div>
           </button>
+          {/* Conditions section — shown when 'conditions' selected */}
+          {taskType === 'conditions' && (
+            <div className="flex flex-col gap-3">
+              {/* Textarea */}
+              <div
+                className="flex flex-col gap-3"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-white mb-1 mt-3">Опишіть умови виконання завдання</p>
+                  <p className="text-[11px] text-white/40 leading-relaxed">
+                    - що саме має зробити виконавець після запуску бота.<br />
+                    Наприклад: натиснути кнопку, пройти капчу, виконати просту дію ТОЩО.
+                  </p>
+                </div>
+                <textarea
+                  value={conditionsText}
+                  onChange={(e) => setConditionsText(e.target.value)}
+                  placeholder="Вкажіть причину відмови...."
+                  rows={4}
+                  className="w-full bg-white/5 text-sm text-white placeholder-white/40 focus:outline-none resize-none px-4 py-2.5 rounded-xl"
+                />
+              </div>
+
+              {/* Prohibited box */}
+              <div
+                className="gradient-border-card rounded-xl px-4 py-2.5 flex flex-col"
+                style={{ background: 'rgba(229,57,53,0.08)', border: '1px solid rgba(229,57,53,0.2)' }}
+              >
+                <div className="flex items-center gap-2 mb-2.5">
+                  <img src='/assets/images/svg/xmark-octagon.svg' alt='xmark-octagon' />
+                  <p className="text-xs font-semibold text-[#FFB7C8]">Заборонено вимагати:</p>
+                </div>
+                {PROHIBITED.map((item, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <span className="text-white/40 text-xs mt-0.5">•</span>
+                    <p className="text-[11px] text-white/40 leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Conditions section — shown when 'conditions' selected */}
-        {taskType === 'conditions' && (
-          <div className="flex flex-col gap-3 mb-3">
-            {/* Textarea */}
-            <div
-              className="gradient-border-card rounded-[20px] p-4 flex flex-col gap-3"
-              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)' }}
-            >
-              <div>
-                <p className="text-sm font-semibold text-white mb-1">Опишіть умови виконання завдання</p>
-                <p className="text-[11px] text-white/40 leading-relaxed">
-                  - що саме має зробити виконавець після запуску бота.<br />
-                  Наприклад: натиснути кнопку, пройти капчу, виконати просту дію ТОЩО.
-                </p>
-              </div>
-              <textarea
-                value={conditionsText}
-                onChange={(e) => setConditionsText(e.target.value)}
-                placeholder="Вкажіть причину відмови...."
-                rows={4}
-                className="w-full bg-transparent text-sm text-white placeholder-white/20 focus:outline-none resize-none"
-              />
-            </div>
-
-            {/* Prohibited box */}
-            <div
-              className="gradient-border-card rounded-[20px] p-4 flex flex-col gap-2"
-              style={{ background: 'rgba(229,57,53,0.08)', border: '1px solid rgba(229,57,53,0.2)' }}
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <div
-                  className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(229,57,53,0.3)' }}
-                >
-                  <span className="text-white text-[9px] font-bold">✕</span>
-                </div>
-                <p className="text-sm font-semibold text-[#FF7070]">Заборонено вимагати:</p>
-              </div>
-              {PROHIBITED.map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span className="text-[#FF7070] text-xs mt-0.5">•</span>
-                  <p className="text-[11px] text-[#FF9090] leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Continue Button */}
         <div className="mt-auto pt-4">
           <button
-            onClick={() => navigate('/audience-setup')}
+            onClick={() => navigate('/bot-audience-setup', { state: { taskType: 'go_to_bot' } })}
             className="w-full h-[44px] font-bold text-sm rounded-full flex items-center justify-center transition-all cursor-pointer"
             style={{
               background: 'linear-gradient(135deg, #87ADF0 0%, #6B94E8 100%)',

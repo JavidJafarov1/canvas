@@ -47,122 +47,119 @@ const BotSetupPage = () => {
 
   return (
     <Layout showNavbar={false}>
-      <div className="px-5 pt-7 pb-8 flex flex-col font-sans text-white relative min-h-screen">
-
-        {/* Header + Icon */}
-        <div className='flex items-center justify-center mb-4'>
-          <div className="flex items-center justify-between absolute left-5">
-            <button onClick={() => navigate(-1)} className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer">
-              <ChevronLeft size={16} />
-            </button>
-            <div className="w-6" />
+      <div className="flex flex-col font-sans text-white relative min-h-screen">
+        <div className='p-[10px_15px_22px_15px] border-b border-b-white/10'>
+          {/* Header + Icon */}
+          <div className='flex items-center justify-center mb-4'>
+            <div className="flex items-center justify-between absolute left-5">
+              <button onClick={() => navigate(-1)} className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer">
+                <ChevronLeft size={16} />
+              </button>
+              <div className="w-6" />
+            </div>
+            <img src={BOT_ICON} alt="bot-icon" className="w-[60px] h-[60px]" />
           </div>
-          <img src={BOT_ICON} alt="bot-icon" className="w-[60px] h-[60px]" />
-        </div>
 
-        {/* Title */}
-        <h1 className="text-lg font-bold text-white text-center mb-3">Бот</h1>
+          {/* Title */}
+          <h1 className="text-lg font-bold text-white text-center mb-3">Бот</h1>
 
-        {/* 4-Step Progress — Step 1 active */}
-        <div className="flex items-center justify-center gap-[5px] mb-6 w-full max-w-[220px] mx-auto">
-          <StepDot active />
-          <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
-          <StepDot />
-          <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
-          <StepDot />
-          <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
-          <StepDot />
+          {/* 4-Step Progress — Step 1 active */}
+          <div className="flex items-center justify-center gap-[5px] w-full max-w-[220px] mx-auto">
+            <StepDot active />
+            <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
+            <StepDot />
+            <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
+            <StepDot />
+            <div className="h-[1px] flex-1 rounded-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
+            <StepDot />
+          </div>
         </div>
 
         {/* Main Card */}
-        <div
-          className="gradient-border-card rounded-[20px] p-4 flex flex-col gap-3 mb-3"
-          style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)' }}
-        >
-          <p className="text-xs text-[#8A8D9F]">Оберіть бот, який хочете рекламувати</p>
+        <div className='p-4'>
+          <div
+            className="gradient-border-card rounded-xl p-3 flex flex-col gap-3 mb-3"
+            style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)' }}
+          >
+            <p className="text-xs text-[#8A8D9F]">Оберіть бот, який хочете рекламувати</p>
 
-          {/* Input + Обрати */}
-          <div className="flex gap-2.5 w-full">
-            <div
-              className="flex-1 h-[44px] rounded-full flex items-center px-4"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              <input
-                type="text"
-                placeholder="@username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                disabled={!!selectedBot}
-                className="bg-transparent text-sm text-white placeholder-white/25 w-full focus:outline-none disabled:opacity-50"
-              />
+            {/* Input + Обрати */}
+            <div className="flex gap-2.5 w-full">
+              <div
+                className="flex-1 h-[44px] rounded-full flex items-center px-4"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <input
+                  type="text"
+                  placeholder="@username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  disabled={!!selectedBot}
+                  className="bg-transparent text-sm text-white placeholder-white/25 w-full focus:outline-none disabled:opacity-50"
+                />
+              </div>
+              <button
+                onClick={handleObrat}
+                disabled={!!selectedBot || !username.trim()}
+                className="h-[44px] px-5 rounded-full text-sm font-semibold text-[#87ADF0] transition-all cursor-pointer disabled:opacity-40 disabled:pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(135,173,240,0.12) 0%, rgba(135,173,240,0.06) 100%)',
+                  border: '1px solid rgba(135,173,240,0.25)',
+                }}
+              >
+                Обрати
+              </button>
             </div>
-            <button
-              onClick={handleObrat}
-              disabled={!!selectedBot || !username.trim()}
-              className="h-[44px] px-5 rounded-full text-sm font-semibold text-[#87ADF0] transition-all cursor-pointer disabled:opacity-40 disabled:pointer-events-none"
-              style={{
-                background: 'linear-gradient(135deg, rgba(135,173,240,0.12) 0%, rgba(135,173,240,0.06) 100%)',
-                border: '1px solid rgba(135,173,240,0.25)',
-              }}
-            >
-              Обрати
-            </button>
-          </div>
 
-          {/* Selected bot row */}
-          {selectedBot && (
+            {/* Selected bot row */}
             <div
               className="gradient-border-card rounded-[16px] p-3 flex items-center justify-between"
               style={{ background: 'linear-gradient(86.96deg, rgba(255,255,255,0.055) 2.67%, rgba(255,255,255,0.077) 98%)' }}
             >
               <div className="flex items-center gap-3">
-                <img src={selectedBot.icon} alt="bot" className="w-[44px]" />
+                <img src={selectedBot?.icon || '/assets/images/vector15.png'} alt="bot" className="w-[44px]" />
                 <div>
-                  <p className="text-sm font-semibold text-white">{selectedBot.name}</p>
-                  <p className="text-xs text-white/40 mt-0.5">{selectedBot.subscribers} підписників</p>
+                  <p className="text-sm font-semibold text-white">{selectedBot?.name || 'Crypto Signals VIP'}</p>
+                  <p className="text-xs text-white/40 mt-0.5">{selectedBot?.subscribers || '12.5k'} підписників</p>
                 </div>
               </div>
               <button onClick={handleRemove} className="text-white/40 hover:text-white transition-colors cursor-pointer p-1">
                 <X size={16} />
               </button>
             </div>
-          )}
+            <div className='bg-white/10 h-[1px] w-full'></div>
+            {/* Referral link section */}
+            <p className="text-xs text-[#8A8D9F] mt-1">
+              Реферальне посилання <span className="text-white/30">(необов'язково)</span>
+            </p>
+            <div
+              className="flex items-center rounded-full px-4 h-[44px]"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              <input
+                type="url"
+                placeholder="https://t.me/bot_name?start=ref123"
+                value={refLink}
+                onChange={(e) => setRefLink(e.target.value)}
+                className="bg-transparent text-sm text-white placeholder-white/25 w-full focus:outline-none"
+              />
+            </div>
 
-          {/* Referral link section — visible after bot selected */}
-          {selectedBot && (
-            <>
-              <p className="text-xs text-[#8A8D9F] mt-1">
-                Реферальне посилання <span className="text-white/30">(необов'язково)</span>
+            {/* Tip */}
+            <div
+              className="flex items-center gap-2 rounded-full px-4 py-2.5"
+              style={{ background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(255,192,0,0.1)' }}
+            >
+              <img src="/assets/images/svg/lightbulb-simple.svg" alt="tip" />
+              <p className="text-[11px] text-[#FFF0C4]">
+                Користувач перейде за цим посиланням замість @my_earn_bot
               </p>
-              <div
-                className="flex items-center rounded-full px-4 h-[44px]"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <input
-                  type="url"
-                  placeholder="https://t.me/bot_name?start=ref123"
-                  value={refLink}
-                  onChange={(e) => setRefLink(e.target.value)}
-                  className="bg-transparent text-sm text-white placeholder-white/25 w-full focus:outline-none"
-                />
-              </div>
-
-              {/* Tip */}
-              <div
-                className="flex items-center gap-2 rounded-full px-4 py-2.5"
-                style={{ background: 'rgba(234,179,8,0.08)', border: '1px solid rgba(255,192,0,0.1)' }}
-              >
-                <img src="/assets/images/svg/lightbulb-simple.svg" alt="tip" />
-                <p className="text-[11px] text-[#FFF0C4]">
-                  Користувач перейде за цим посиланням замість @my_earn_bot
-                </p>
-              </div>
-            </>
-          )}
+            </div>
+          </div>
         </div>
 
         {/* Continue Button */}
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-4 px-4">
           <button
             onClick={() => navigate('/bot-task-type')}
             className="w-full h-[44px] font-bold text-sm rounded-full flex items-center justify-center transition-all cursor-pointer"

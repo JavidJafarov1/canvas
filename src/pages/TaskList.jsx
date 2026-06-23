@@ -43,13 +43,13 @@ const TaskList = () => {
                     </Link>
 
                     {/* Card 2: Виконати завдання */}
-                    <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{ background: '#161829' }}>
+                    <Link to="/execute-tasks" className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between cursor-pointer block' style={{ background: '#161829' }}>
                         <div className='flex items-center gap-4'>
                             <img src='/assets/images/vector2.png' alt='vector2' className='w-[44px]' />
                             <h3 className='font-medium text-[15px] text-white'>Виконати завдання</h3>
                         </div>
                         <ChevronRight size={18} className='text-[#5A5D72]' />
-                    </div>
+                    </Link>
 
                     {/* Card 3: Мої завдання */}
                     <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{ background: '#161829' }}>

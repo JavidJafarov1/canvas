@@ -19,7 +19,7 @@ const NonSubscriptionRestriction = () => {
       
       <div>
         {/* Top Header Row with Back Button and Ban Icon */}
-        <div className='relative w-full flex items-center justify-center mt-6 mb-6 px-4'>
+        <div className='relative w-full flex items-center justify-center mt-6 mb-3 px-4'>
           {/* Back Button */}
           <button
             onClick={() => navigate(-1)}
@@ -28,40 +28,28 @@ const NonSubscriptionRestriction = () => {
             <ChevronLeft size={24} />
           </button>
 
-          {/* Top Ban Icon with concentric circles */}
-          <div className='relative flex items-center justify-center w-[76px] h-[76px]'>
-            {/* Glowing outer circle */}
-            <div className='absolute w-[76px] h-[76px] rounded-full border border-[#87ADF0]/10 flex items-center justify-center'
-                 style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(135, 173, 240, 0.08) 0%, rgba(135, 173, 240, 0) 100%)' }} />
-            {/* Middle border circle */}
-            <div className='absolute w-[60px] h-[60px] rounded-full border border-[#87ADF0]/20 flex items-center justify-center' />
             {/* Inner solid circle with shadow */}
-            <div className='w-[48px] h-[48px] rounded-full bg-[#181D38] border border-[#87ADF0]/30 flex items-center justify-center shadow-[0_0_15px_rgba(135,173,240,0.25)] z-10'>
-              <Ban size={20} className='text-[#87ADF0]' />
+            <div className='w-[60px] h-[60px] rounded-full flex items-center justify-center z-10'>
+              <img src="assets/images/stopLine.png" alt="stop" />
             </div>
-          </div>
         </div>
 
         {/* Title & Subtitle */}
-        <div className='flex flex-col items-center px-6 mb-8'>
-          <h1 className='text-[20px] font-bold text-white text-center leading-tight mb-2 tracking-wide'>
+        <div className='flex flex-col items-center px-6 mb-[34px]'>
+          <h1 className='text-[16px] font-medium text-white text-center leading-tight tracking-wide'>
             Обмеження за непідписку
           </h1>
-          <p className='text-[#8A8D9F] text-xs text-center px-4'>
-            Автоматичне покарання для користувачів, які не мають обов'язкової підписки.
-          </p>
         </div>
 
         {/* Settings Container */}
-        <div className='px-4 flex flex-col gap-4'>
+        <div className='px-4 flex flex-col gap-3'>
           
           {/* Card 1: Toggle Enabled */}
-          <div className='gradient-border-card rounded-[20px] p-4 flex flex-col gap-2.5' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
+          <div className='gradient-border-card rounded-[12px] p-[12px_16px] flex flex-col gap-1' 
+               style={{ background: 'linear-gradient(128.85deg, rgba(255, 73, 115, 0.2) 0%, rgba(255, 73, 115, 0.04) 53.26%, rgba(255, 73, 115, 0.02) 100%), linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
             <div className='flex items-center justify-between'>
               <div className='flex items-center gap-2.5'>
-                <Ban size={18} className='text-[#87ADF0]' />
-                <span className='text-sm font-semibold text-white'>Обмеження за непідписку</span>
+                <span className='text-[14px] font-medium text-white'>Обмеження за непідписку</span>
               </div>
               
               {/* Toggle Switch */}
@@ -72,40 +60,41 @@ const NonSubscriptionRestriction = () => {
                 <div className={`w-5 h-5 rounded-full bg-white shadow-md transition-transform ${enabled ? 'translate-x-[18px]' : 'translate-x-0'}`} />
               </div>
             </div>
-            <p className='text-[#8A8D9F] text-[11px] leading-relaxed pr-6'>
+            <p className='text-[#ffffff]/40 text-[12px] leading-relaxed pr-6'>
               Автоматичне покарання для користувачів, які не мають обов'язкової підписки.
             </p>
           </div>
 
           {/* Card 2: Punishment Type */}
-          <div className='gradient-border-card rounded-[20px] p-4 flex flex-col gap-4' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
-            <div className='flex items-center gap-2.5'>
-              <Shield size={18} className='text-[#87ADF0]' />
-              <div className='flex flex-col'>
-                <span className='text-sm font-semibold text-white'>Тип покарання</span>
-                <span className='text-[#8A8D9F] text-[11px] mt-0.5'>Виберіть тип покарання для користувача</span>
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-3' 
+               style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
+              <div className='flex items-center gap-2'>
+                <img src="assets/images/svg/Shield Minimalistic.svg" alt="warning" />
+                <span className='text-[14px] font-medium text-white'>Тип покарання</span>
               </div>
-            </div>
+              <span className='text-[#ffffff]/40 text-[12px]'>Виберіть тип покарання для користувача</span>
 
             {/* Segmented Selectors */}
-            <div className='bg-[#16182C]/50 border border-white/[0.06] rounded-[14px] flex items-stretch overflow-hidden h-[44px]'>
+            <div className='gradient-border-card rounded-[12px] flex items-stretch overflow-hidden h-[44px] divide-x divide-[#ffffff]/20'>
               {[
-                { id: 'Mute', label: 'Mute', icon: VolumeX },
-                { id: 'Kick', label: 'Kick', icon: UserMinus },
-                { id: 'Ban', label: 'Ban', icon: Ban }
+                { id: 'Mute', label: 'Mute', icon: "assets/images/svg/Volume Cross.svg"},
+                { id: 'Kick', label: 'Kick', icon: "assets/images/svg/User Minus Rounded.svg" },
+                { id: 'Ban', label: 'Ban', icon: "assets/images/svg/Forbidden Circle.svg" }
               ].map((item) => {
-                const IconComponent = item.icon;
                 const isActive = punishmentType === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => setPunishmentType(item.id)}
                     className={`flex-1 flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                      isActive ? 'bg-[#87ADF0] text-[#0B0E21] font-semibold' : 'text-white/60 hover:bg-white/[0.02]'
+                      isActive ? 'bg-[#87ADF0] text-[#0B0E21] font-semibold' : 'text-white/60'
                     }`}
                   >
-                    <IconComponent size={16} className={isActive ? 'text-[#0B0E21]' : 'text-white/60'} />
+                    <img 
+                      src={`/${item.icon}`} 
+                      alt={item.label} 
+                      className={`w-5 h-5 object-contain ${isActive ? 'brightness-0' : 'opacity-60'}`}
+                    />
                     <span className='text-xs'>{item.label}</span>
                   </button>
                 );
@@ -114,28 +103,27 @@ const NonSubscriptionRestriction = () => {
           </div>
 
           {/* Card 3: Message Limit */}
-          <div className='gradient-border-card rounded-[20px] p-4 flex flex-col gap-4' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
-            <div className='flex items-center gap-2.5'>
-              <MessageSquare size={18} className='text-[#87ADF0]' />
-              <div className='flex flex-col'>
-                <span className='text-sm font-semibold text-white'>Ліміт повідомлень</span>
-                <span className='text-[#8A8D9F] text-[11px] mt-0.5'>Встановіть кількість повідомлень до застосування обмеження.</span>
-              </div>
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-3' 
+               style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
+            <div className='flex items-center gap-2'>
+              <img src="assets/images/svg/Chat  Square Arrow.svg" alt="Chat Square Arrow" />
+              <span className='text-sm font-medium text-white'>Ліміт повідомлень</span>
             </div>
+            <span className='text-[#ffffff]/40 text-[12px]'>Встановіть кількість повідомлень до застосування обмеження.</span>
 
             {/* Limits Grid */}
-            <div className='grid grid-cols-6 gap-2'>
+            <div className='grid grid-cols-6 gap-y-2 gap-x-1'>
               {limits.map((item) => {
                 const isActive = messageLimit === item;
                 return (
                   <button
                     key={item}
                     onClick={() => setMessageLimit(item)}
-                    className={`h-[36px] rounded-full text-xs font-semibold flex items-center justify-center transition-all cursor-pointer ${
+                    style={{ background: 'rgba(255, 255, 255, 0.05)'}}
+                    className={`h-[32px] rounded-[40px] text-xs flex items-center justify-center transition-all cursor-pointer gradient-border-card ${
                       isActive
-                        ? 'border border-[#87ADF0] text-[#87ADF0] bg-[#87ADF0]/5 shadow-[0_0_10px_rgba(135,173,240,0.15)]'
-                        : 'bg-white/[0.03] border border-transparent text-[#8A8D9F] hover:bg-white/[0.06] hover:text-white'
+                        ? 'border border-[#87ADF0] text-[#87ADF0] bg-transparent'
+                        : 'border border-transparent text-[#8A8D9F]'
                     }`}
                   >
                     {item}
@@ -146,20 +134,18 @@ const NonSubscriptionRestriction = () => {
           </div>
 
           {/* Card 4: Punishment Duration */}
-          <div className='gradient-border-card rounded-[20px] p-4 flex flex-col gap-4' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-3' 
+               style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
             <div className='flex items-center gap-2.5'>
-              <Clock size={18} className='text-[#87ADF0]' />
-              <div className='flex flex-col'>
-                <span className='text-sm font-semibold text-white'>Тривалість покарання</span>
-                <span className='text-[#8A8D9F] text-[11px] mt-0.5'>Виберіть тривалість обмеження для користувача</span>
-              </div>
+              <img src="assets/images/svg/Alarm Add.svg" alt="Alarm Clock" />
+              <span className='text-sm font-medium text-white'>Тривалість покарання</span>
             </div>
+            <span className='text-[#ffffff]/40 text-[12px]'>Виберіть тривалість обмеження для користувача</span>
 
             {/* Duration Input Select */}
-            <div className='relative flex items-center justify-between gradient-border-card rounded-xl h-[44px] px-4 cursor-pointer hover:border-white/20 transition-all' style={{background: 'rgba(255, 255, 255, 0.05)'}}>
+            <div className='relative flex items-center justify-between gradient-border-card rounded-full h-[44px] px-4 cursor-pointer hover:border-white/20 transition-all' style={{background: 'rgba(255, 255, 255, 0.05)'}}>
               <div className='flex items-center gap-2.5'>
-                <Clock size={16} className='text-white/40 shrink-0' />
+                <img src="assets/images/svg/Clock Circle.svg" alt="Clock Circle" />
                 <input 
                   type='number' 
                   value={durationValue} 
@@ -171,15 +157,17 @@ const NonSubscriptionRestriction = () => {
             </div>
 
             {/* Time units segmented selector */}
-            <div className='bg-[#16182C]/50 border border-white/[0.06] rounded-[14px] flex items-stretch overflow-hidden h-[40px]'>
+            <div className='flex gap-6 items-stretch h-[40px]'>
               {['Хв', 'Год', 'Дн'].map((unit) => {
                 const isActive = durationUnit === unit;
                 return (
                   <button
                     key={unit}
                     onClick={() => setDurationUnit(unit)}
-                    className={`flex-1 flex items-center justify-center cursor-pointer transition-all text-xs font-semibold ${
-                      isActive ? 'bg-[#87ADF0] text-[#0B0E21]' : 'text-[#8A8D9F] hover:bg-white/[0.02]'
+                    className={`flex-1 flex items-center justify-center cursor-pointer transition-all text-xs font-semibold rounded-full ${
+                      isActive 
+                        ? 'bg-[#87ADF0] text-[#0B0E21]' 
+                        : 'text-[#8A8D9F] bg-[#ffffff]/[0.03] border border-white/[0.08] hover:bg-[#ffffff]/[0.08]'
                     }`}
                   >
                     {unit}
@@ -190,19 +178,19 @@ const NonSubscriptionRestriction = () => {
           </div>
 
           {/* Bottom Summary Card */}
-          <div className='gradient-border-card rounded-[20px] p-4 flex items-center gap-4' 
-               style={{ background: 'linear-gradient(86.96deg, rgba(135, 173, 240, 0.06) 2.67%, rgba(135, 173, 240, 0.01) 98%), #131526' }}>
-            <div className='w-[40px] h-[40px] rounded-full bg-[#1F2A45] border border-[#87ADF0]/20 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(135,173,240,0.1)]'>
-              <Shield size={18} className='text-[#87ADF0]' />
+          <div className='gradient-border-card rounded-[12px] p-[12px_16px] flex items-center gap-4' 
+               style={{ background: 'linear-gradient(128.85deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 53.26%, rgba(135, 173, 240, 0.02) 100%), linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}>
+            <div className='w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0'>
+              <img src="assets/images/shield.png" alt="Shield" />
             </div>
             <div className='flex flex-col gap-0.5 text-left'>
-              <h4 className='text-xs font-bold text-[#87ADF0] uppercase tracking-wider'>
+              <h4 className='text-sm font-medium text-[#87ADF0]'>
                 Покарання: <span className='text-white capitalize'>{punishmentType}</span>
               </h4>
-              <p className='text-[#8A8D9F] text-[11px] leading-tight mt-0.5'>
+              <p className='text-[#ffffff]/40 text-[12px] leading-tight mt-0.5'>
                 • Ліміт повідомлень: {messageLimit === 0 ? 'без ліміту' : `${messageLimit}`}
               </p>
-              <p className='text-[#8A8D9F] text-[11px] leading-tight'>
+              <p className='text-[#ffffff]/40 text-[12px] leading-tight'>
                 • Тривалість: {durationValue} {durationUnit === 'Хв' ? 'хвилин' : durationUnit === 'Год' ? 'годин' : 'днів'}
               </p>
             </div>
@@ -215,7 +203,7 @@ const NonSubscriptionRestriction = () => {
       <div className='px-4 mt-8'>
         <button
           onClick={() => navigate(-1)}
-          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-bold text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
+          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-medium text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
         >
           Зберегти
         </button>

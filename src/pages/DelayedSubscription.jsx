@@ -20,7 +20,7 @@ const DelayedSubscription = () => {
       
       <div>
         {/* Top Header Row with Back Button and Clock Icon */}
-        <div className='relative w-full flex items-center justify-center mt-6 mb-6 px-4'>
+        <div className='relative w-full flex items-center justify-center mt-6 mb-3 px-4'>
           {/* Back Button */}
           <button
             onClick={() => navigate(-1)}
@@ -29,58 +29,52 @@ const DelayedSubscription = () => {
             <ChevronLeft size={24} />
           </button>
 
-          {/* Top Clock Icon with concentric circles */}
-          <div className='relative flex items-center justify-center w-[76px] h-[76px]'>
-            {/* Glowing outer circle */}
-            <div className='absolute w-[76px] h-[76px] rounded-full border border-[#87ADF0]/10 flex items-center justify-center'
-                 style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(135, 173, 240, 0.08) 0%, rgba(135, 173, 240, 0) 100%)' }} />
-            {/* Middle border circle */}
-            <div className='absolute w-[60px] h-[60px] rounded-full border border-[#87ADF0]/20 flex items-center justify-center' />
-            {/* Inner solid circle with shadow */}
-            <div className='w-[48px] h-[48px] rounded-full bg-[#181D38] border border-[#87ADF0]/30 flex items-center justify-center shadow-[0_0_15px_rgba(135,173,240,0.25)] z-10'>
-              <Clock size={20} className='text-[#87ADF0]' />
+            <div className='w-[60px] h-[60px] rounded-full flex items-center justify-center z-10'>
+              <img src="assets/images/clockLine.png" alt="Clock" />
             </div>
-          </div>
         </div>
 
         {/* Title & Subtitle */}
         <div className='flex flex-col items-center px-6 mb-8'>
-          <h1 className='text-[20px] font-bold text-white text-center leading-tight mb-2 tracking-wide'>
+          <h1 className='text-[16px] font-medium text-white text-center leading-tight mb-2 tracking-wide'>
             Гнучкий запит підписки
           </h1>
-          <p className='text-[#8A8D9F] text-xs text-center px-2 leading-relaxed'>
+          <p className='text-[#ffffff]/40 text-xs text-center px-2 leading-relaxed'>
             Бот попросить підписатися не одразу, а після N-го повідомлення користувача. Лічильник скидається через 24 год.
           </p>
         </div>
 
         {/* Settings Card Wrapper */}
         <div className='px-4'>
-          <div className='gradient-border-card rounded-[20px] p-5 flex flex-col gap-4' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-3' 
+               style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.08) 98%)' }}>
             
             {/* Card Header */}
-            <div className='flex items-center gap-2.5 mb-1'>
-              <div className='w-7 h-7 rounded-lg bg-[#87ADF0]/10 flex items-center justify-center shrink-0'>
-                <SortArrowsIcon className='text-[#87ADF0]' />
+            <div className='flex flex-col items-start gap-2.5 mb-1'>
+              <div className='flex items-center gap-2.5'>
+                <div className='w-5 h-5 flex items-center justify-center shrink-0'>
+                  <img src="assets/images/svg/Square Transfer Vertical.svg" alt="Sort Arrows Icon" />
+                </div>
+                <span className='text-sm font-medium text-white'>Виберіть кількість</span>
               </div>
               <div className='flex flex-col'>
-                <span className='text-sm font-semibold text-white'>Виберіть кількість</span>
-                <span className='text-[#8A8D9F] text-[11px] mt-0.5'>Поточне значення:</span>
+                <span className='text-[#ffffff]/40 text-xs mt-0.5'>Поточне значення:</span>
               </div>
             </div>
 
             {/* Grid Selector */}
-            <div className='grid grid-cols-5 gap-2.5 mt-1'>
+            <div className='grid grid-cols-5 gap-x-1 gap-y-2 mt-1'>
               {numbers.map((num) => {
                 const isActive = selectedValue === num;
                 return (
                   <button
                     key={num}
                     onClick={() => setSelectedValue(num)}
-                    className={`h-[36px] rounded-full text-xs font-semibold flex items-center justify-center transition-all cursor-pointer ${
+                    style={{ background: 'rgba(255, 255, 255, 0.05)'}}
+                    className={`h-[32px] rounded-full text-xs font-medium flex items-center justify-center transition-all cursor-pointer gradient-border-card ${
                       isActive
-                        ? 'border border-[#87ADF0] text-[#87ADF0] bg-[#87ADF0]/5 shadow-[0_0_10px_rgba(135,173,240,0.15)]'
-                        : 'bg-white/[0.03] border border-transparent text-[#8A8D9F] hover:bg-white/[0.06] hover:text-white'
+                        ? 'border border-[#87ADF0] text-[#87ADF0]'
+                        : 'bg-white/[0.03] border border-transparent text-[#8A8D9F]'
                     }`}
                   >
                     {num}
@@ -97,7 +91,7 @@ const DelayedSubscription = () => {
       <div className='px-4 mt-8'>
         <button
           onClick={() => navigate(-1)}
-          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-bold text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
+          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-medium text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
         >
           Зберегти
         </button>

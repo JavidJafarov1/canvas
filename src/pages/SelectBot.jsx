@@ -59,7 +59,7 @@ const SelectBot = () => {
                 className='w-[44px] h-[44px] rounded-full flex items-center justify-center border border-[#87ADF0]/15 text-[#87ADF0]'
                 style={{ background: 'linear-gradient(128.85deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 53.26%, rgba(135, 173, 240, 0.2) 100%)' }}
               >
-                <Bot size={20} className='text-[#87ADF0]' />
+                <img src="assets/images/svg/Smile Square.svg" alt="bot" className='w-5 h-5 object-contain' />
               </div>
               
               {/* Text details */}

@@ -14,7 +14,7 @@ const AutoDelete = () => {
       
       <div>
         {/* Top Header Row with Back Button and Trash Icon */}
-        <div className='relative w-full flex items-center justify-center mt-6 mb-6 px-4'>
+        <div className='relative w-full flex items-center justify-center mt-6 mb-3 px-4'>
           {/* Back Button */}
           <button
             onClick={() => navigate(-1)}
@@ -23,41 +23,32 @@ const AutoDelete = () => {
             <ChevronLeft size={24} />
           </button>
 
-          {/* Top Trash Icon with concentric circles */}
-          <div className='relative flex items-center justify-center w-[76px] h-[76px]'>
-            {/* Glowing outer circle */}
-            <div className='absolute w-[76px] h-[76px] rounded-full border border-[#87ADF0]/10 flex items-center justify-center'
-                 style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(135, 173, 240, 0.08) 0%, rgba(135, 173, 240, 0) 100%)' }} />
-            {/* Middle border circle */}
-            <div className='absolute w-[60px] h-[60px] rounded-full border border-[#87ADF0]/20 flex items-center justify-center' />
-            {/* Inner solid circle with shadow */}
-            <div className='w-[48px] h-[48px] rounded-full bg-[#181D38] border border-[#87ADF0]/30 flex items-center justify-center shadow-[0_0_15px_rgba(135,173,240,0.25)] z-10'>
-              <Trash2 size={20} className='text-[#87ADF0]' />
+            <div className='w-[60px] h-[60px] rounded-full flex items-center justify-center z-10'>
+              <img src="assets/images/trashLine.png" alt="trash" className='text-[#87ADF0]' />
             </div>
-          </div>
         </div>
 
         {/* Title & Subtitle */}
         <div className='flex flex-col items-center px-6 mb-8'>
-          <h1 className='text-[20px] font-bold text-white text-center leading-tight mb-2 tracking-wide'>
+          <h1 className='text-[20px] font-medium text-white text-center leading-tight mb-2 tracking-wide'>
             Автовидалення повідомлень
           </h1>
-          <p className='text-[#8A8D9F] text-xs text-center px-4'>
+          <p className='text-[#ffffff]/40 text-xs text-center px-4'>
             Повідомлення бота зникають через заданий час (15с - 5хв)
           </p>
         </div>
 
         {/* Settings Card Wrapper */}
         <div className='px-4'>
-          <div className='gradient-border-card rounded-[20px] p-4 flex flex-col gap-5 divide-y divide-white/[0.06]' 
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-4 divide-y divide-white/[0.06]' 
                style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
             
             {/* Toggle Section */}
-            <div className='flex flex-col gap-2.5'>
+            <div className='flex flex-col gap-2.5 pb-4'>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-2.5'>
-                  <Trash2 size={18} className='text-[#FF4973]' />
-                  <span className='text-sm font-semibold text-white'>Автовидалення</span>
+                  <img src="assets/images/svg/Trash Bin 2.svg" size={20} className='text-[#FF4973]' />
+                  <span className='text-sm font-medium text-white'>Автовидалення</span>
                 </div>
                 
                 {/* Custom Toggle Switch */}
@@ -68,16 +59,16 @@ const AutoDelete = () => {
                   <div className={`w-5 h-5 rounded-full bg-white shadow-md transition-transform ${enabled ? 'translate-x-[18px]' : 'translate-x-0'}`} />
                 </div>
               </div>
-              <p className='text-[#8A8D9F] text-[11px] leading-relaxed pr-6'>
+              <p className='text-[#ffffff]/40 text-[12px] leading-relaxed pr-6'>
                 Повідомлення PR GRAM автоматично видаляються після встановленого часу.
               </p>
             </div>
 
             {/* Interval Section */}
-            <div className='pt-4 flex flex-col gap-4'>
+            <div className='flex flex-col gap-4'>
               <div className='flex items-center gap-2.5'>
-                <Clock size={18} className='text-[#87ADF0]' />
-                <span className='text-sm font-semibold text-white'>Інтервал видалення</span>
+                <img src="assets/images/svg/AlarmBlue.svg" size={20} className='text-[#87ADF0]' />
+                <span className='text-sm font-medium text-white'>Інтервал видалення</span>
               </div>
 
               {/* Grid Selector */}
@@ -88,11 +79,12 @@ const AutoDelete = () => {
                     <button
                       key={item}
                       onClick={() => setInterval(item)}
-                      className={`h-[36px] rounded-full text-xs font-semibold flex items-center justify-center transition-all cursor-pointer ${
+                      className={`gradient-border-card h-[36px] rounded-full text-xs flex items-center justify-center transition-all cursor-pointer ${
                         isActive
-                          ? 'border border-[#87ADF0] text-[#87ADF0] bg-[#87ADF0]/5 shadow-[0_0_10px_rgba(135,173,240,0.15)]'
-                          : 'bg-white/[0.03] border border-transparent text-[#8A8D9F] hover:bg-white/[0.06] hover:text-white'
+                          ? 'border border-[#87ADF0] text-[#87ADF0]'
+                          : 'text-[#ffffff]'
                       }`}
+                      style={{ background: isActive? "transparent" : "rgba(255, 255, 255, 0.05)" }}
                     >
                       {item}
                     </button>
@@ -109,7 +101,7 @@ const AutoDelete = () => {
       <div className='px-4 mt-8'>
         <button
           onClick={() => navigate(-1)}
-          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-bold text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
+          className='w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-medium text-sm rounded-full flex items-center justify-center cursor-pointer transition-all shadow-[0_4px_20px_rgba(135,173,240,0.25)]'
         >
           Зберегти
         </button>

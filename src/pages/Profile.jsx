@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronRight, Settings, User, Crown, Wallet, Users, Trophy, ClipboardList, ClipboardCheck } from 'lucide-react';
 import Layout from '../components/Layout';
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   return (
     <Layout>
       <div className='px-5 pt-7 pb-4'>
@@ -45,7 +48,11 @@ const Profile = () => {
         <div className='flex flex-col gap-3 border-t border-dashed border-[#2A2D40] pt-5'>
           
           {/* Card 1: Deposit balance */}
-          <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{background: '#161829'}}>
+          <div 
+            onClick={() => navigate('/deposit-balance')}
+            className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity' 
+            style={{background: '#161829'}}
+          >
             <div className='flex items-center gap-4'>
               <img src='/assets/images/vector9.png' alt='vector9' />
               <h3 className='font-medium text-[15px] text-white'>Deposit balance</h3>
@@ -54,7 +61,11 @@ const Profile = () => {
           </div>
 
           {/* Card 2: Referral system */}
-          <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{background: '#161829'}}>
+          <div 
+            onClick={() => navigate('/referral-system')}
+            className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity' 
+            style={{background: '#161829'}}
+          >
             <div className='flex items-center gap-4'>
               <img src='/assets/images/vector10.png' alt='vector10' />
               <h3 className='font-medium text-[15px] text-white'>Referral system</h3>
@@ -63,7 +74,11 @@ const Profile = () => {
           </div>
 
           {/* Card 3: Level system */}
-          <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{background: '#161829'}}>
+          <div 
+            onClick={() => navigate('/level-system')}
+            className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity' 
+            style={{background: '#161829'}}
+          >
             <div className='flex items-center gap-4'>
               <img src='/assets/images/vector11.png' alt='vector11' />
               <h3 className='font-medium text-[15px] text-white'>Level system</h3>
@@ -72,7 +87,11 @@ const Profile = () => {
           </div>
 
           {/* Card 4: My tasks */}
-          <div className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between' style={{background: '#161829'}}>
+          <div 
+            onClick={() => navigate('/my-tasks')}
+            className='gradient-border-card rounded-[16px] p-3 flex items-center justify-between cursor-pointer hover:opacity-90 transition-opacity' 
+            style={{background: '#161829'}}
+          >
             <div className='flex items-center gap-4'>
               <img src='/assets/images/vector3.png' alt='vector3' />
               <h3 className='font-medium text-[15px] text-white'>My tasks</h3>
