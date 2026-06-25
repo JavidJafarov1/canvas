@@ -47,29 +47,24 @@ const ChangePriceConfirmModal = ({ isOpen, onClose, onConfirm, newPrice, current
   return (
     <div className='fixed inset-y-0 left-1/2 -translate-x-1/2 max-w-[375px] w-full bg-[#0B0E21]/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fadeIn'>
       <div
-        className='w-full max-w-[327px] rounded-[28px] p-6 flex flex-col items-center border border-white/5 relative overflow-hidden'
+        className='w-full max-w-[327px] rounded-[12px] p-[32px_24px] flex flex-col items-center relative overflow-hidden gradient-border-card'
         style={{
-          background: 'radial-gradient(circle at top, rgba(135, 173, 240, 0.12) 0%, rgba(11, 14, 33, 0) 50%), #131422'
+          background: 'linear-gradient(155.83deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 32.55%, rgba(135, 173, 240, 0.02) 61.12%), #0B0E21'
         }}
       >
         {/* Circle Icon */}
         <div 
-          className={`w-[64px] h-[64px] rounded-full flex items-center justify-center border text-[#87ADF0] mb-5 relative`}
-          style={{
-            background: 'linear-gradient(135deg, rgba(135, 173, 240, 0.15) 0%, rgba(135, 173, 240, 0.03) 100%)',
-            borderColor: 'rgba(135, 173, 240, 0.2)',
-            boxShadow: '0 0 20px rgba(135, 173, 240, 0.12)'
-          }}
+          className={`w-[58px] h-[58px] rounded-full flex items-center justify-center mb-4 relative`}
         >
           {isIncrease ? (
-            <Plus size={24} className="text-[#87ADF0]" />
+            <img src="/assets/images/Plus-Blue.png" />
           ) : (
-            <Minus size={24} className="text-[#87ADF0]" />
+            <img src="/assets/images/Minus-Blue.png" />
           )}
         </div>
 
         {/* Title */}
-        <h2 className='text-[16px] font-bold text-white text-center leading-snug mb-5 px-1'>
+        <h2 className='text-[16px] font-medium text-white text-center leading-snug mb-5 px-1'>
           {isIncrease 
             ? `Збільшити ціну для завдання ${taskId} до ${newPrice.toLocaleString()} GRAM?`
             : `Зменшити ціну для завдання ${taskId} до ${newPrice.toLocaleString()} GRAM?`
@@ -79,8 +74,8 @@ const ChangePriceConfirmModal = ({ isOpen, onClose, onConfirm, newPrice, current
         {/* Details Wrapper */}
         <div className="flex flex-col items-center gap-1 mb-6">
           <div className="flex items-center gap-1.5 justify-center">
-            <GramIcon />
-            <span className="text-[15px] font-bold text-[#FFB800]">
+            <img src="/assets/images/p-logo.png" />
+            <span className="text-[14px] font-medium text-[#FFC000]">
               {isIncrease 
                 ? `Доплата: ${extraAmount.toLocaleString()} GRAM` 
                 : `${refundAmount.toLocaleString()} GRAM буде повернуто`
@@ -88,7 +83,7 @@ const ChangePriceConfirmModal = ({ isOpen, onClose, onConfirm, newPrice, current
             </span>
           </div>
           {isIncrease && (
-            <span className="text-[12px] text-[#8A8D9F]">Включено комісію 15%</span>
+            <span className="text-[12px] text-[#ffffff]/40">Включено комісію 15%</span>
           )}
         </div>
 
@@ -96,16 +91,16 @@ const ChangePriceConfirmModal = ({ isOpen, onClose, onConfirm, newPrice, current
         <div className='flex gap-3 w-full'>
           <button
             onClick={onClose}
-            className='flex-1 h-[48px] text-[#87ADF0] font-semibold text-[14px] rounded-full border border-white/5 flex items-center justify-center cursor-pointer active:scale-95 transition-all'
+            className='flex-1 h-[48px] text-[#87ADF0] font-medium text-[14px] rounded-full border border-white/5 flex items-center justify-center cursor-pointer active:scale-95 transition-all'
             style={{
-              background: 'linear-gradient(180deg, #1C2340 0%, #121526 100%)'
+              background: 'linear-gradient(128.85deg, rgba(135, 173, 240, 0.2) 0%, rgba(135, 173, 240, 0.04) 53.26%, rgba(135, 173, 240, 0.2) 100%)'
             }}
           >
             Назад
           </button>
           <button
             onClick={onConfirm}
-            className='flex-1 h-[48px] text-[#0B0E21] font-bold text-[14px] rounded-full flex items-center justify-center cursor-pointer active:scale-95 transition-all shadow-[0_4px_12px_rgba(135,173,240,0.3)] bg-[#87ADF0] hover:opacity-95'
+            className='flex-1 h-[48px] text-[#0B0E21] font-medium text-[14px] rounded-full flex items-center justify-center cursor-pointer active:scale-95 transition-all shadow-[0_4px_12px_rgba(135,173,240,0.3)] bg-[#87ADF0] hover:opacity-95'
           >
             Так, підтвердити
           </button>

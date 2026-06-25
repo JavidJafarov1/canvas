@@ -74,8 +74,17 @@ import AutoTasksBotWarning from "./pages/AutoTasksBotWarning";
 import AutoTasksConfig from "./pages/AutoTasksConfig";
 import AutoTasksConfigViews from "./pages/AutoTasksConfigViews";
 import AutoTasksConfigReactions from "./pages/AutoTasksConfigReactions";
+import AutoTasksConfigDetail from "./pages/AutoTasksConfigDetail";
 import ExecuteTasksPage from "./pages/ExecuteTasksPage";
 import ExecuteChannelSub from "./pages/ExecuteChannelSub";
+import ExecuteBot from "./pages/ExecuteBot";
+import ExecuteReactions from "./pages/ExecuteReactions";
+import ExecutePremiumBoost from "./pages/ExecutePremiumBoost";
+import ExecutePendingReactions from "./pages/ExecutePendingReactions";
+import VerifyExecutions from "./pages/VerifyExecutions";
+import VerifyTaskReview from "./pages/VerifyTaskReview";
+import ChangeAudience from "./pages/ChangeAudience";
+import EditAudience from "./pages/EditAudience";
 
 
 function App() {
@@ -98,10 +107,15 @@ function App() {
         <Route path="/auto-tasks/add" element={<AutoTasksAddChannel />} />
         <Route path="/auto-tasks/warning" element={<AutoTasksBotWarning />} />
         <Route path="/auto-tasks/config" element={<AutoTasksConfig />} />
+        <Route path="/auto-tasks/config/detail" element={<AutoTasksConfigDetail />} />
         <Route path="/auto-tasks/config/views" element={<AutoTasksConfigViews />} />
         <Route path="/auto-tasks/config/reactions" element={<AutoTasksConfigReactions />} />
         <Route path="/execute-tasks" element={<ExecuteTasksPage />} />
         <Route path="/execute-tasks/channel-sub" element={<ExecuteChannelSub />} />
+        <Route path="/execute-tasks/bot" element={<ExecuteBot />} />
+        <Route path="/execute-tasks/reactions" element={<ExecuteReactions />} />
+        <Route path="/execute-tasks/premium-boost" element={<ExecutePremiumBoost />} />
+        <Route path="/execute-tasks/pending-reactions" element={<ExecutePendingReactions />} />
         <Route path="/channel-sub" element={<ChannelSub />} />
         <Route path="/select-channel-page" element={<SelectChannelPage />} />
         {/* Views Flow */}
@@ -160,6 +174,10 @@ function App() {
         <Route path="/task-detail" element={<TaskDetail />} />
         <Route path="/add-executions" element={<AddExecutions />} />
         <Route path="/change-price" element={<ChangePrice />} />
+        <Route path="/change-audience" element={<ChangeAudience />} />
+        <Route path="/edit-audience" element={<EditAudience />} />
+        <Route path="/verify-executions" element={<VerifyExecutions />} />
+        <Route path="/verify-task-review" element={<VerifyTaskReview />} />
       </Routes>
     </Router>
   );

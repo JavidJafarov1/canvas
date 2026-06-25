@@ -123,8 +123,8 @@ const AutoTasksConfig = () => {
               onClick={() => {
                 // Simulate recovery/resume action
               }}
-              className="flex-grow h-[50px] rounded-full font-semibold text-[15px] flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#00FF95]/30 text-[#00FF95] text-center hover:brightness-110 active:scale-[0.98]"
-              style={{ background: 'linear-gradient(90deg, rgba(0, 255, 149, 0.15) 0%, rgba(0, 255, 149, 0.02) 100%)' }}
+              className="flex-grow h-[50px] rounded-full font-semibold text-[15px] flex items-center justify-center gap-2 transition-all cursor-pointer gradient-border-card text-[#00FF95] text-center hover:brightness-110 active:scale-[0.98]"
+              style={{ background: 'linear-gradient(170deg, rgba(0, 255, 149, 0.2) 0%, rgba(0, 255, 149, 0.04) 53.26%, rgba(0, 255, 149, 0.02) 100%)' }}
             >
               <img src='/assets/images/svg/Play1.svg' alt='play1' />
               Відновити
@@ -134,6 +134,17 @@ const AutoTasksConfig = () => {
               onClick={handleDelete}
             >
               <img src='/assets/images/vector20.png' alt='vector20' />
+            </button>
+          </div>
+
+          {/* New navigation button matching red box in mockup */}
+          <div className="pt-3">
+            <button
+              onClick={() => navigate('/auto-tasks/config/detail', { state: { channel } })}
+              className="w-full h-[50px] rounded-[16px] font-semibold text-[15px] flex items-center justify-center gap-2 transition-all cursor-pointer border border-white/10 text-white text-center hover:bg-white/[0.02] active:scale-[0.98]"
+              style={{ background: 'rgba(255, 255, 255, 0.03)' }}
+            >
+              Деталі конфігурації
             </button>
           </div>
         </div>

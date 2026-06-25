@@ -120,9 +120,9 @@ const AutoTasksConfigReactions = () => {
 
   return (
     <Layout showNavbar={false}>
-      <div className="px-5 pt-7 pb-8 flex flex-col font-sans text-white relative min-h-screen">
+      <div className="flex flex-col font-sans text-white relative min-h-screen">
         {/* Header */}
-        <div className="flex items-center justify-between mb-5 relative h-10">
+        <div className="flex items-center justify-between relative px-5 h-[64px] border-b border-[#1C1F37]">
           <button
             onClick={() => navigate(-1)}
             className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-0"

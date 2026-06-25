@@ -29,8 +29,8 @@ const AutoTasks = () => {
         {/* Header */}
         <div className="flex items-center justify-between relative p-[22px_15px] border-b border-b-white/10 h-[64px]">
           <button
-            onClick={() => navigate(-1)}
-            className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-0"
+            onClick={() => navigate('/create-task')}
+            className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-4"
           >
             <ChevronLeft size={24} />
           </button>

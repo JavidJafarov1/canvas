@@ -55,7 +55,7 @@ const ChangePrice = () => {
           >
             <ChevronLeft size={20} />
           </button>
-          <h1 className="text-base font-semibold text-white tracking-wider flex-1 text-center mr-5">
+          <h1 className="text-base font-medium text-white flex-1 text-center mr-5">
             Змінити ціну
           </h1>
         </div>
@@ -65,54 +65,54 @@ const ChangePrice = () => {
           
           {/* Recommendation Banner */}
           <div 
-            className="flex items-start gap-3 p-4 rounded-[16px]"
+            className="flex items-center gap-3 p-4 rounded-[12px]"
             style={{ 
-              background: 'rgba(255, 184, 0, 0.05)', 
-              border: '1px solid rgba(255, 184, 0, 0.12)' 
+              background: 'rgba(255, 192, 0, 0.1)', 
             }}
           >
-            <div className="w-8 h-8 rounded-full bg-[#FFB800]/10 flex items-center justify-center flex-shrink-0 text-[#FFB800]">
-              <Lightbulb size={16} className="fill-[#FFB800]/10" />
+            <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 text-[#FFB800">
+              <img src="/assets/images/svg/lightbulb-simple.svg" />
             </div>
-            <p className="text-[13px] leading-relaxed text-[#8A8D9F]">
+            <p className="text-[13px] leading-relaxed text-[#FFF0C4]">
               Рекомендація: якщо Ви хочете потрапити на перші 3 сторінки - встановіть ціну не нижче:{' '}
-              <span className="font-bold text-[#FFB800]">800 GRAM.</span>
+              <span className="font-bold text-[#FFC000]">800 GRAM.</span>
             </p>
           </div>
 
           {/* Form Card */}
           <div 
-            className="gradient-border-card rounded-[16px] p-4 flex flex-col gap-5"
-            style={{ background: '#161829' }}
+            className="gradient-border-card rounded-[12px] p-4 flex flex-col gap-5"
+            style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
           >
             
             {/* Header: Change price title */}
-            <div className="flex items-center gap-3 border-b border-[#2A2D40]/60 pb-4">
-              <div className="w-9 h-9 rounded-full bg-[#87ADF0]/10 flex items-center justify-center flex-shrink-0 text-[#87ADF0]">
-                <HelpCircle size={18} />
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 flex items-center justify-center flex-shrink-0 text-[#87ADF0]">
+                <img src="/assets/images/svg/Question-Square.svg" />
               </div>
-              <h3 className="text-[13px] font-bold tracking-wider text-white uppercase">
+              <h3 className="text-[12px] font-medium text-white uppercase">
                 ЗМІНИТИ ЦІНУ ДЛЯ ЗАВДАННЯ №{taskId.replace('#', '')}?
               </h3>
             </div>
 
             {/* Current Price Stat Line */}
-            <div className="flex items-center justify-between text-[14px]">
-              <span className="text-[#8A8D9F]">Поточна ціна:</span>
-              <span className="font-semibold text-white">{currentPriceVal} GRAM за 1 од.</span>
+            <div className="flex items-center justify-between border-b border-[#2A2D40]/60 text-[14px] pb-3">
+              <span className="text-[#ffffff]/40">Поточна ціна:</span>
+              <span className="font-medium text-white text-xs">{currentPriceVal} GRAM за 1 од.</span>
             </div>
 
             {/* Input Block */}
             <div className="flex flex-col gap-2">
-              <label className="text-[#8A8D9F] text-xs pl-1">
+              <label className="text-[#ffffff]/40 text-xs pl-1">
                 Введіть нову ціну, від 600 до 2000 GRAM
               </label>
               
               <div 
-                className="flex items-center justify-between gap-3 bg-[#0B0E21]/60 border border-[#2A2D40]/60 rounded-[14px] p-3"
+                className="flex items-center justify-between gap-3 rounded-full p-3 gradient-border-card"
+                style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)'}}
               >
                 <div className="flex items-center gap-3 w-full">
-                  <Pencil size={15} className="text-[#5A5D72] flex-shrink-0" />
+                  <img src="/assets/images/svg/Pen-2-Gray.svg" size={15} className="text-[#5A5D72] flex-shrink-0" />
                   <input
                     type="text"
                     value={newPrice}
@@ -132,7 +132,7 @@ const ChangePrice = () => {
             {/* Action Button */}
             <button
               onClick={handleContinue}
-              className="w-full py-3.5 rounded-[14px] bg-[#87ADF0] text-[#0B0E21] font-bold text-[15px] transition-all active:scale-[0.98] hover:opacity-95 shadow-[0_0_15px_rgba(135,173,240,0.3)] mt-2"
+              className="w-full py-3.5 rounded-full bg-[#87ADF0] text-[#0B0E21] font-medium text-[14px] transition-all active:scale-[0.98] hover:opacity-95 shadow-[0_0_15px_rgba(135,173,240,0.3)] mt-2"
             >
               Продовжити
             </button>

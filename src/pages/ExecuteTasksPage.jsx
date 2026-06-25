@@ -44,7 +44,7 @@ const taskCategories = [
 
 const pendingTasks = [
   { id: 'pending_reactions', label: 'Реакції', icon: '/assets/images/svg/Clock Circle.svg' },
-  { id: 'pending_bots',      label: 'Боти',    icon: '/assets/images/svg/Clock Circle.svg' },
+  { id: 'pending_bots', label: 'Боти', icon: '/assets/images/svg/Clock Circle.svg' },
 ];
 
 const ExecuteTasksPage = () => {
@@ -55,103 +55,106 @@ const ExecuteTasksPage = () => {
       <div className="flex flex-col font-sans text-white relative min-h-screen bg-[#090B19]">
 
         {/* Header */}
-        <div className="flex flex-col items-center pt-8 pb-5 px-5 relative">
+        <div className="p-[10px_15px_22px_15px] border-b border-b-white/10">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/task-list')}
             className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-5 top-8"
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft size={16} />
           </button>
-
-          {/* Clipboard icon circle */}
-          <div
-            className="w-[56px] h-[56px] rounded-full flex items-center justify-center mb-4"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%)',
-              border: '1px solid rgba(255,255,255,0.1)',
-            }}
-          >
-            <img src="/assets/images/vector2.png" alt="execute" className="w-[30px]" />
+          <div className='flex justify-center'>
+            {/* Clipboard icon circle */}
+            <img src="/assets/images/vector42.png" alt="execute" className="w-[60px]" />
           </div>
 
-          <h1 className="text-[22px] font-bold text-white leading-tight text-center">
+          <h1 className="text-2xl font-bold text-white leading-tight text-center mt-3">
             Виконати завдання
           </h1>
-          <p className="text-sm text-white/45 mt-1 text-center">
+          <p className="text-sm text-white/45 mt-1 text-center mb-3">
             Обери завдання для виконання
           </p>
-        </div>
-
-        {/* Balance Bar */}
-        <div className="px-4 mb-5">
+          {/* Balance Bar */}
           <div
-            className="gradient-border-card rounded-[92px] px-4 h-[48px] flex items-center justify-between border border-white/[0.06]"
-            style={{ background: 'linear-gradient(86.96deg, rgba(255,255,255,0.055) 2.67%, rgba(255,255,255,0.077) 98%)' }}
+            className='gradient-border-card flex items-center justify-between px-[17px] py-[10px] w-full rounded-full mx-auto h-[48px]'
+            style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
           >
-            <div className="flex items-center gap-2.5">
-              <img src="/assets/images/vector.png" alt="balance" className="w-5" />
-              <span className="text-sm text-white/50 font-medium">Your balance</span>
+            <div className='flex items-center gap-2'>
+              <img src='/assets/images/vector.png' alt='vector' className='w-4 h-4' />
+              <span className='text-[#8A8D9F] text-xs font-medium'>Your balance</span>
             </div>
-            <span className="text-sm font-bold text-white">462 862 GRAM</span>
+            <span className='font-bold text-xs text-white'>462 862 GRAM</span>
           </div>
         </div>
-
-        {/* Task Categories */}
-        <div className="px-4 flex flex-col gap-2.5 mb-5">
-          {taskCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => {
-                if (cat.id === 'channel_sub') {
-                  navigate('/execute-tasks/channel-sub');
-                }
-              }}
-              className="gradient-border-card w-full rounded-[16px] p-3 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all border border-white/[0.06]"
-              style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
-            >
-              <div className="flex items-center gap-4">
-                <img src={cat.icon} alt={cat.label} className="w-[44px] shrink-0" />
-                <span className="text-[15px] font-medium text-white">{cat.label}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[15px] font-medium text-white/60">{cat.count}</span>
-                <ChevronRight size={18} className="text-[#5A5D72]" />
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Pending Tasks Section */}
-        <div className="px-4 pb-6">
-          {/* Section header */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-2 h-2 rounded-full bg-[#5E82FF] shrink-0" />
-            <span className="text-sm font-semibold text-white/80">
-              Завдання на доопрацювання
-            </span>
-            <span className="text-sm text-white/40 font-medium">(3)</span>
-          </div>
-
-          <div className="flex flex-col gap-2.5">
-            {pendingTasks.map((task) => (
+        <div className='px-5 py-4'>
+          {/* Task Categories */}
+          <div className="flex flex-col gap-2.5 mb-4 border-dashed border-b border-b-white/10 pb-4">
+            {taskCategories.map((cat) => (
               <button
-                key={task.id}
-                onClick={() => {}}
-                className="gradient-border-card w-full rounded-[16px] p-3 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all border border-white/[0.06]"
-                style={{ background: 'linear-gradient(86.96deg, rgba(255,255,255,0.055) 2.67%, rgba(255,255,255,0.077) 98%)' }}
+                key={cat.id}
+                onClick={() => {
+                  if (cat.id === 'channel_sub') {
+                    navigate('/execute-tasks/channel-sub');
+                  } else if (cat.id === 'bot_visit') {
+                    navigate('/execute-tasks/bot');
+                  } else if (cat.id === 'reactions') {
+                    navigate('/execute-tasks/reactions');
+                  } else if (cat.id === 'premium_boost') {
+                    navigate('/execute-tasks/premium-boost');
+                  }
+                }}
+                className="gradient-border-card w-full rounded-[16px] p-3 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all"
+                style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-[44px] h-[44px] rounded-full bg-[#87ADF0]/10 border border-[#87ADF0]/20 flex items-center justify-center shrink-0">
-                    <img src={task.icon} alt={task.label} className="w-5 h-5" />
-                  </div>
-                  <span className="text-[15px] font-medium text-white">{task.label}</span>
+                  <img
+                    src={cat.icon}
+                    alt={cat.label}
+                    className="w-[44px] shrink-0"
+                    style={cat.filter ? { filter: cat.filter } : undefined}
+                  />
+                  <span className="text-[15px] font-medium text-white">{cat.label}</span>
                 </div>
-                <ChevronRight size={18} className="text-[#5A5D72]" />
+                <div className="flex items-center gap-2">
+                  <span className="text-[15px] font-medium text-white/60">{cat.count}</span>
+                  <ChevronRight size={18} className="text-[#5A5D72]" />
+                </div>
               </button>
             ))}
           </div>
-        </div>
 
+          {/* Pending Tasks Section */}
+          <div>
+            {/* Section header */}
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-2 h-2 rounded-full bg-[#5E82FF] shrink-0" />
+              <span className="text-sm font-semibold text-white/80">
+                Завдання на доопрацювання
+              </span>
+              <span className="text-sm text-white/40 font-medium">(3)</span>
+            </div>
+
+            <div className="flex flex-col gap-2.5">
+              {pendingTasks.map((task) => (
+                <button
+                  key={task.id}
+                  onClick={() => {
+                    if (task.id === 'pending_reactions') {
+                      navigate('/execute-tasks/pending-reactions');
+                    }
+                  }}
+                  className="gradient-border-card w-full rounded-[16px] p-3 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all"
+                  style={{ background: 'linear-gradient(86.96deg, rgba(255,255,255,0.055) 2.67%, rgba(255,255,255,0.077) 98%)' }}
+                >
+                  <div className="flex items-center gap-4">
+                    <img src='/assets/images/vector43.png' alt='vector43' className="w-[44px]" />
+                    <span className="text-[15px] font-medium text-white">{task.label}</span>
+                  </div>
+                  <ChevronRight size={18} className="text-[#5A5D72]" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   );

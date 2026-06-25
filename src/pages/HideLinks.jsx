@@ -30,7 +30,7 @@ const HideLinks = () => {
           <h1 className='text-[16px] font-medium text-white text-center leading-tight mb-1 tracking-wide'>
             Приховати посилання
           </h1>
-          <p className='text-[#ffffff]/40 text-[12px] text-center px-4'>
+          <p className='text-[#ffffff]/40 text-[14px] text-center px-4'>
             Прибирає текстові посилання, залишає лише кнопки
           </p>
         </div>

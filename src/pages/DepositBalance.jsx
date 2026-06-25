@@ -55,42 +55,42 @@ const DepositBalance = () => {
       <div className="flex flex-col min-h-screen text-white pb-6">
         
         {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-b-[#232637] p-[22px_15px] mb-8">
+        <div className="flex items-center justify-between border-b border-b-[#232637] p-[22px_15px] mb-6">
           <Link to="/profile" className="text-[#545664] hover:text-white transition-colors">
             <ChevronLeft size={20} />
           </Link>
-          <h1 className="text-base font-semibold text-white tracking-wider flex-1 text-center mr-5">Deposit balance</h1>
+          <h1 className="text-base font-medium text-white flex-1 text-center mr-5">Deposit balance</h1>
         </div>
 
         {/* Content Container */}
         <div className="px-5 flex-1 flex flex-col">
 
         {/* Balance Display */}
-        <div className="flex flex-col items-center mb-8">
-          <GramLogo size={64} className="mb-4" />
-          <span className="text-[#8A8D9F] text-[13px] font-normal mb-1">Your balance</span>
-          <h2 className="text-[28px] font-semibold tracking-tight">462 862 GRAM</h2>
+        <div className="flex flex-col items-center mb-6">
+          <img src='/assets/images/plogo.png' alt='gram' className='w-[60px] h-[60px] mb-3' />
+          <span className="text-[#ffffff]/40 text-[12px] mb-1">Your balance</span>
+          <h2 className="text-[24px] font-medium tracking-tight">462 862 GRAM</h2>
         </div>
 
         {/* Input section */}
-        <div className="flex flex-col gap-2 mb-6">
-          <label className="text-[#8A8D9F] text-xs font-normal pl-1">
+        <div className="flex flex-col gap-2">
+          <label className="text-[#ffffff]/40 text-[12px] font-medium pl-1">
             Введіть кількість зірок:
           </label>
           <div 
-            className="gradient-border-card rounded-[16px] p-3 flex items-center justify-between gap-3"
-            style={{ background: '#161829' }}
+            className="gradient-border-card rounded-[16px] p-2.5 flex items-center justify-between gap-3"
+            style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.08) 98%)' }}
           >
             <div className="flex items-center gap-3 w-full">
-              <div className="w-9 h-9 rounded-full bg-[#FFB800]/10 flex items-center justify-center flex-shrink-0">
-                <Star size={18} className="text-[#FFB800] fill-[#FFB800]" />
+              <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0">
+                <img src="/assets/images/vector4.png" alt="star" />
               </div>
               <input
                 type="text"
                 value={starsCount}
                 onChange={(e) => setStarsCount(e.target.value)}
                 placeholder="Кількість зірок"
-                className="bg-transparent border-none outline-none w-full text-white text-[15px] placeholder-[#5A5D72] font-medium"
+                className="bg-transparent border-none outline-none w-full text-white text-[14px] placeholder-[#ffffff]/40 font-medium"
               />
             </div>
             <ChevronsUpDown size={18} className="text-[#5A5D72] flex-shrink-0" />
@@ -98,11 +98,11 @@ const DepositBalance = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-dashed border-[#2A2D40] my-4 w-full"></div>
+        <div className="border-t border-dashed border-[#2A2D40] my-3 w-full"></div>
 
         {/* Packages Section */}
-        <div className="flex flex-col gap-3 mb-6">
-          <label className="text-[#8A8D9F] text-xs font-normal pl-1">
+        <div className="flex flex-col gap-2 mb-6">
+          <label className="text-[#ffffff]/40 text-xs font-medium pl-1">
             Або оберіть пакет:
           </label>
 
@@ -110,26 +110,24 @@ const DepositBalance = () => {
             {packages.map((pkg, idx) => (
               <div 
                 key={idx}
-                className="gradient-border-card rounded-[16px] p-3 flex items-center justify-between"
-                style={{ background: '#161829' }}
+                className="gradient-border-card rounded-[12px] p-2.5 flex items-center justify-between"
+                style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.08) 98%)' }}
               >
                 <div className="flex items-center gap-4">
-                  <GramLogoBlue size={36} />
-                  <span className="text-[15px] font-semibold">
+                  <img src="/assets/images/P-Blue.png" className="w-[44px] h-[44px]" />
+                  <span className="text-[14px] font-medium">
                     {pkg.gram} <span className="text-[#5A5D72] font-medium">GRAM</span>
                   </span>
                 </div>
 
                 <button 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all active:scale-95"
+                  className="flex gradient-border-card items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95"
                   style={{
-                    background: 'rgba(255, 184, 0, 0.1)',
-                    border: '1px solid rgba(255, 184, 0, 0.2)',
-                    color: '#FFB800'
+                    background: 'linear-gradient(128.85deg, rgba(255, 208, 0, 0.2) 0%, rgba(255, 208, 0, 0.04) 53.26%, rgba(255, 208, 0, 0.02) 100%)',
                   }}
                 >
-                  <Star size={12} className="fill-[#FFB800] text-[#FFB800]" />
-                  <span>{pkg.stars}</span>
+                  <img src="/assets/images/svg/Staryellow.svg" className="w-[18px] h-[18px]" />
+                  <span className='text-[#FFD000]'>{pkg.stars}</span> 
                 </button>
               </div>
             ))}
@@ -138,14 +136,14 @@ const DepositBalance = () => {
 
         {/* Support Section */}
         <div 
-          className="gradient-border-card rounded-full p-4 flex items-start gap-3 mt-auto"
-          style={{ background: 'rgba(22, 24, 41, 0.6)', border: '1px solid rgba(255, 255, 255, 0.02)' }}
+          className="gradient-border-card rounded-full p-[10px_16px] flex items-center gap-2.5 mt-auto"
+          style={{ background: 'rgba(135, 173, 240, 0.1)' }}
         >
-          <div className="w-10 h-10 rounded-full bg-[#1F2C4C] flex items-center justify-center flex-shrink-0">
-            <MessageSquare size={20} className="text-[#87ADF0]" />
+          <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+            <img src="/assets/images/svg/Chat-Round.svg" className="w-[24px] h-[24px]" />
           </div>
           <div className="flex flex-col gap-0.5">
-            <p className="text-[13px] leading-relaxed text-[#8A8D9F]">
+            <p className="text-[12px] leading-relaxed text-[#D6E5FF]">
               Виникли проблеми з поповненням? Пишіть у чат підтримки{' '}
               <a 
                 href="https://t.me/prgram_help" 

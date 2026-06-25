@@ -18,7 +18,7 @@ const EntryCheck = () => {
       
       <div>
         {/* Top Header Row with Back Button and Eye Icon */}
-        <div className='relative w-full flex items-center justify-center mt-6 mb-6 px-4'>
+        <div className='relative w-full flex items-center justify-center mt-6 mb-3 px-4'>
           {/* Back Button */}
           <button
             onClick={() => navigate(-1)}
@@ -27,51 +27,42 @@ const EntryCheck = () => {
             <ChevronLeft size={24} />
           </button>
 
-          {/* Top Eye Icon with concentric circles */}
-          <div className='relative flex items-center justify-center w-[76px] h-[76px]'>
-            {/* Glowing outer circle */}
-            <div className='absolute w-[76px] h-[76px] rounded-full border border-[#87ADF0]/10 flex items-center justify-center'
-                 style={{ background: 'radial-gradient(50% 50% at 50% 50%, rgba(135, 173, 240, 0.08) 0%, rgba(135, 173, 240, 0) 100%)' }} />
-            {/* Middle border circle */}
-            <div className='absolute w-[60px] h-[60px] rounded-full border border-[#87ADF0]/20 flex items-center justify-center' />
-            {/* Inner solid circle with shadow */}
-            <div className='w-[48px] h-[48px] rounded-full bg-[#181D38] border border-[#87ADF0]/30 flex items-center justify-center shadow-[0_0_15px_rgba(135,173,240,0.25)] z-10'>
-              <Eye size={20} className='text-[#87ADF0]' />
+            <div className='w-[60px] h-[60px] rounded-full flex items-center justify-center z-10'>
+              <img src="assets/images/eyeLine.png" />
             </div>
-          </div>
         </div>
 
         {/* Title & Subtitle */}
-        <div className='flex flex-col items-center px-6 mb-8'>
-          <h1 className='text-[20px] font-bold text-white text-center leading-tight mb-2 tracking-wide'>
+        <div className='flex flex-col items-center px-6 mb-[34px]'>
+          <h1 className='text-[16px] font-medium text-white text-center leading-tight mb-1 tracking-wide'>
             Перевірка при вході
           </h1>
-          <p className='text-[#8A8D9F] text-xs text-center px-2 leading-relaxed'>
+          <p className='text-[#ffffff]/40 text-sm text-center px-2 leading-relaxed'>
             Кожен новий учасник буде перевірений на підписку одразу при вході. Доступ до повідомлень відкриється автоматично після виконання всіх умов.
           </p>
         </div>
 
         {/* Settings Card Wrapper */}
         <div className='px-4'>
-          <div className='gradient-border-card rounded-[20px] p-5 flex flex-col gap-5' 
-               style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #131526' }}>
+          <div className='gradient-border-card rounded-[12px] p-4 flex flex-col gap-4' 
+               style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.08) 98%)' }}>
             
             {/* Card Header Status Row */}
             <div className='flex items-center justify-between w-full'>
-              <div className='flex items-center gap-2.5'>
-                <div className='w-7 h-7 rounded-lg bg-[#87ADF0]/10 flex items-center justify-center shrink-0'>
-                  <SortArrowsIcon className='text-[#87ADF0]' />
+              <div className='flex items-center gap-2'>
+                <div className='flex items-center justify-center shrink-0'>
+                  <img src="assets/images/svg/Square Transfer Vertical.svg" />
                 </div>
-                <span className='text-sm font-semibold text-white'>Статус</span>
+                <span className='text-sm font-medium text-white'>Статус</span>
               </div>
 
               {/* Status indicator pill */}
               <div className='flex items-center gap-1.5'>
-                <span className={`text-xs font-semibold ${isActive ? 'text-[#10B981]' : 'text-[#FF4973]'}`}>
+                <span className={`text-sm ${isActive ? 'text-[#10B981]' : 'text-[#FF4973]'}`}>
                   {isActive ? 'Увімкнено' : 'Вимкнено'}
                 </span>
                 <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                  isActive ? 'bg-[#10B981]/20 text-[#10B981]' : 'bg-[#FF4973]/20 text-[#FF4973]'
+                  isActive ? 'bg-[#10B981]/20 text-[#10B981]' : 'bg-[#FF4973]/40 text-[#FF4973]'
                 }`}>
                   {isActive ? <Check size={12} strokeWidth={3} /> : <X size={12} strokeWidth={3} />}
                 </div>
@@ -81,7 +72,7 @@ const EntryCheck = () => {
             {/* Enable/Disable Action Button inside card */}
             <button
               onClick={() => setIsActive(!isActive)}
-              className={`w-full h-[46px] font-bold text-sm rounded-full flex items-center justify-center cursor-pointer transition-all ${
+              className={`w-full h-[46px] font-medium text-sm rounded-full flex items-center justify-center cursor-pointer transition-all ${
                 isActive 
                   ? 'border border-[#FF4973]/20 text-[#FF4973] hover:bg-[#FF4973]/5' 
                   : 'bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] shadow-[0_4px_20px_rgba(135,173,240,0.25)]'

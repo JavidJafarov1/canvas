@@ -262,7 +262,7 @@ const LaunchSC = () => {
               </div>
             ) : linkType === 'bot' ? (
               <div 
-                className='border border-[#FFC000]/10 rounded-[18px] px-5 py-2.5 flex gap-3 text-[#FFF0C4] items-start'
+                className='border border-[#FFC000]/10 rounded-[18px] px-5 py-2.5 flex gap-3 text-[#FFF0C4] items-center'
                 style={{ background: 'rgba(255, 192, 0, 0.05)' }}
               >
                 <DangerTriangleIcon className='shrink-0 text-[#FFD166] w-[20px] h-[20px] mt-0.5' />

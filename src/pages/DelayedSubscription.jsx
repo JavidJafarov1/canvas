@@ -39,7 +39,7 @@ const DelayedSubscription = () => {
           <h1 className='text-[16px] font-medium text-white text-center leading-tight mb-2 tracking-wide'>
             Гнучкий запит підписки
           </h1>
-          <p className='text-[#ffffff]/40 text-xs text-center px-2 leading-relaxed'>
+          <p className='text-[#ffffff]/40 text-sm text-center px-2 leading-relaxed'>
             Бот попросить підписатися не одразу, а після N-го повідомлення користувача. Лічильник скидається через 24 год.
           </p>
         </div>
@@ -73,8 +73,8 @@ const DelayedSubscription = () => {
                     style={{ background: 'rgba(255, 255, 255, 0.05)'}}
                     className={`h-[32px] rounded-full text-xs font-medium flex items-center justify-center transition-all cursor-pointer gradient-border-card ${
                       isActive
-                        ? 'border border-[#87ADF0] text-[#87ADF0]'
-                        : 'bg-white/[0.03] border border-transparent text-[#8A8D9F]'
+                        ? 'border border-[#87ADF0] text-[#87ADF0] bg-transparent'
+                        : 'border border-transparent text-[#8A8D9F]'
                     }`}
                   >
                     {num}

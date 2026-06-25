@@ -90,12 +90,12 @@ const AutoTasksConfigViews = () => {
 
   return (
     <Layout showNavbar={false}>
-      <div className="px-5 pt-7 pb-8 flex flex-col font-sans text-white relative min-h-screen">
+      <div className="flex flex-col font-sans text-white relative min-h-screen">
         {/* Header */}
-        <div className="flex items-center justify-between mb-5 relative h-10">
+        <div className="flex items-center justify-between relative px-5 h-[64px] border-b border-[#1C1F37]">
           <button
             onClick={() => navigate(-1)}
-            className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-0"
+            className="text-[#8A8D9F] hover:text-white transition-colors cursor-pointer absolute left-4"
           >
             <ChevronLeft size={24} />
           </button>
@@ -104,10 +104,10 @@ const AutoTasksConfigViews = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col gap-3.5 mb-20">
+        <div className="flex flex-col gap-3.5 mb-20 p-4">
           {/* Card 1: Audience Selector */}
           <div
-            className="gradient-border-card rounded-[20px] p-4 flex flex-col gap-3.5 border border-white/5"
+            className="gradient-border-card rounded-xl p-3 flex flex-col gap-3.5 border border-white/5"
             style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%)' }}
           >
             <p className="text-[11px] text-white/50 leading-relaxed">
@@ -115,16 +115,16 @@ const AutoTasksConfigViews = () => {
             </p>
 
             {/* Slider Switcher */}
-            <div className="w-full h-11 bg-black/30 border border-white/5 rounded-full p-1 flex items-center relative overflow-hidden">
+            <div className="w-full h-11 bg-black/30 border border-white/5 rounded-xl p-1 flex items-center relative overflow-hidden">
               <button
                 onClick={() => setAudience('all')}
-                className={`flex-1 h-full font-bold text-xs rounded-full transition-all cursor-pointer relative z-10 ${audience === 'all' ? 'text-[#0B0E21]' : 'text-white/60'}`}
+                className={`flex-1 h-full font-bold text-xs rounded-[12px_0_0_12px] transition-all cursor-pointer relative z-10 ${audience === 'all' ? 'text-[#0B0E21]' : 'text-white/60'}`}
               >
                 Дозволити усім
               </button>
               <button
                 onClick={() => setAudience('select')}
-                className={`flex-1 h-full font-bold text-xs rounded-full transition-all cursor-pointer relative z-10 ${audience === 'select' ? 'text-[#0B0E21]' : 'text-white/60'}`}
+                className={`flex-1 h-full font-bold text-xs rounded-[0_12px_12px_0] transition-all cursor-pointer relative z-10 ${audience === 'select' ? 'text-[#0B0E21]' : 'text-white/60'}`}
               >
                 Обрати аудиторію
               </button>
@@ -286,7 +286,7 @@ const AutoTasksConfigViews = () => {
         </div>
 
         {/* Action button at the bottom */}
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-4 px-4">
           <button
             onClick={handleSave}
             className="w-full h-[48px] bg-[#87ADF0] hover:bg-[#729EE8] text-[#0B0E21] font-bold text-sm rounded-full flex items-center justify-center transition-all cursor-pointer shadow-[0_4px_16px_rgba(135,173,240,0.25)]"

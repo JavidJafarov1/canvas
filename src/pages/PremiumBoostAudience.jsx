@@ -51,7 +51,7 @@ const PremiumBoostAudience = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [accountType, setAccountType] = useState('all'); // 'all' | 'premium'
+  const [accountType, setAccountType] = useState('premium'); // 'all' | 'premium'
   const [audienceType, setAudienceType] = useState('no_limit'); // 'no_limit' | 'language'
   const [selectedLangs, setSelectedLangs] = useState(['en']);
 
@@ -99,56 +99,7 @@ const PremiumBoostAudience = () => {
         </div>
 
         <div className='p-3'>
-          {/* Account Type Section */}
-          <div className="gradient-border-card rounded-xl p-4 flex flex-col gap-2 mb-3 bg-white/5">
-            <p className="text-xs text-[#8A8D9F] font-medium mb-1">Тип акаунта</p>
 
-            {/* All Users Option */}
-            <button
-              onClick={() => setAccountType('all')}
-              className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer"
-              style={{
-                background: accountType === 'all'
-                  ? 'linear-gradient(135deg, rgba(135,173,240,0.12) 0%, rgba(135,173,240,0.06) 100%)'
-                  : 'rgba(255,255,255,0.03)',
-                border: `1px solid ${accountType === 'all' ? 'rgba(135,173,240,0.3)' : 'rgba(255,255,255,0.06)'}`,
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <img src="/assets/images/vector10.png" alt="users" className="w-[44px]" />
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-white">Усі користувачі</p>
-                  <p className="text-[11px] text-white/40">Завдання доступне всім</p>
-                </div>
-              </div>
-              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${accountType === 'all' ? 'border-[#87ADF0] bg-[#87ADF0]' : 'border-white/20'}`}>
-                {accountType === 'all' && <div className="w-2 h-2 rounded-full bg-[#0B0E21]" />}
-              </div>
-            </button>
-
-            {/* Premium Only Option */}
-            <button
-              onClick={() => setAccountType('premium')}
-              className="w-full flex items-center justify-between rounded-[14px] p-3 transition-all cursor-pointer"
-              style={{
-                background: accountType === 'premium'
-                  ? 'linear-gradient(128.85deg, rgba(255, 192, 0, 0.2) 0%, rgba(255, 192, 0, 0) 100%), linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)'
-                  : 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)',
-                border: `1px solid ${accountType === 'premium' ? 'rgba(255, 192, 0, 0.35)' : 'rgba(255,255,255,0.06)'}`,
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <img src={accountType === 'premium' ? '/assets/images/vector32-active.png' : '/assets/images/vector32.png'} alt='vector32' className='w-[44px]' />
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-white">Лише Telegram Premium</p>
-                  <p className="text-[11px] text-white/40">Тільки для користувачів із Premium</p>
-                </div>
-              </div>
-              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${accountType === 'premium' ? 'border-[#FFC000] bg-[#FFC000]' : 'border-white/20'}`}>
-                {accountType === 'premium' && <div className="w-2 h-2 rounded-full bg-[#0B0E21]" />}
-              </div>
-            </button>
-          </div>
 
           {/* Audience Section */}
           <div className="gradient-border-card rounded-xl p-3 flex flex-col gap-2 mb-3 bg-white/5">

@@ -30,10 +30,10 @@ const AutoDelete = () => {
 
         {/* Title & Subtitle */}
         <div className='flex flex-col items-center px-6 mb-8'>
-          <h1 className='text-[20px] font-medium text-white text-center leading-tight mb-2 tracking-wide'>
+          <h1 className='text-[16px] font-medium text-white text-center leading-tight mb-1 tracking-wide'>
             Автовидалення повідомлень
           </h1>
-          <p className='text-[#ffffff]/40 text-xs text-center px-4'>
+          <p className='text-[#ffffff]/40 text-sm text-center px-4'>
             Повідомлення бота зникають через заданий час (15с - 5хв)
           </p>
         </div>

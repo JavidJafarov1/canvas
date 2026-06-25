@@ -41,14 +41,14 @@ const AddExecutions = () => {
       <div className="flex flex-col min-h-screen text-white pb-6">
         
         {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-b-[#232637] p-[22px_15px] mb-6">
+        <div className="flex items-center justify-between border-b border-b-[#232637] p-[22px_15px] mb-4">
           <button 
             onClick={() => navigate(-1)} 
             className="text-[#545664] hover:text-white transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
-          <h1 className="text-base font-semibold text-white tracking-wider flex-1 text-center mr-5">
+          <h1 className="text-base font-medium text-white flex-1 text-center mr-5">
             Додати виконання
           </h1>
         </div>
@@ -58,16 +58,15 @@ const AddExecutions = () => {
           
           {/* Notification Alert Panel */}
           <div 
-            className="flex items-start gap-3 p-4 rounded-[16px]"
+            className="flex items-center gap-3 p-2.5 rounded-full"
             style={{ 
-              background: 'rgba(255, 184, 0, 0.05)', 
-              border: '1px solid rgba(255, 184, 0, 0.12)' 
+              background: 'rgba(255, 192, 0, 0.1)',
             }}
           >
-            <div className="w-8 h-8 rounded-full bg-[#FFB800]/10 flex items-center justify-center flex-shrink-0 text-[#FFB800]">
-              <Bell size={16} className="fill-[#FFB800]" />
+            <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+              <img src="/assets/images/svg/Bell-Yellow.svg" />
             </div>
-            <p className="text-[13px] leading-relaxed text-[#FFB800]">
+            <p className="text-[13px] leading-relaxed text-[#FFF0C4]">
               Зверніть увагу: при додаванні виконань буде стягнута{' '}
               <span className="font-bold text-[#FFB800]">комісія 15%.</span>
             </p>
@@ -75,37 +74,38 @@ const AddExecutions = () => {
 
           {/* Calculator Card */}
           <div 
-            className="gradient-border-card rounded-[16px] p-4 flex flex-col gap-5"
-            style={{ background: '#161829' }}
+            className="gradient-border-card rounded-[12px] p-4 flex flex-col gap-4"
+            style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)' }}
           >
             
             {/* Stats Lines */}
             <div className="flex flex-col gap-3 text-[14px] border-b border-[#2A2D40]/60 pb-4">
               <div className="flex items-center justify-between">
-                <span className="text-[#8A8D9F]">Ваш баланс:</span>
-                <span className="font-semibold text-white">{formatGram(userBalance)} GRAM</span>
+                <span className="text-[#ffffff]/40 text-xs">Ваш баланс:</span>
+                <span className="font-medium text-white text-xs">{formatGram(userBalance)} GRAM</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[#8A8D9F]">Ціна:</span>
-                <span className="font-semibold text-white">{unitPrice} GRAM за 1 од.</span>
+                <span className="text-[#ffffff]/40 text-xs">Ціна:</span>
+                <span className="font-medium text-white text-xs">{unitPrice} GRAM за 1 од.</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[#8A8D9F]">Максимум, який можна додати:</span>
-                <span className="font-semibold text-white">{maxAdd} од.</span>
+                <span className="text-[#ffffff]/40 text-xs">Максимум, який можна додати:</span>
+                <span className="font-medium text-white text-xs">{maxAdd} од.</span>
               </div>
             </div>
 
             {/* Input field block */}
             <div className="flex flex-col gap-2">
-              <label className="text-[#8A8D9F] text-xs pl-1">
+              <label className="text-[#ffffff]/40 text-xs pl-1">
                 Введіть кількість виконань, яку ви хочете додати:
               </label>
               
               <div 
-                className="flex items-center justify-between gap-3 bg-[#0B0E21]/60 border border-[#2A2D40]/60 rounded-[14px] p-3"
+                className="flex items-center justify-between gap-3 gradient-border-card rounded-full p-3"
+                style={{ background: 'linear-gradient(86.96deg, rgba(255, 255, 255, 0.055) 2.67%, rgba(255, 255, 255, 0.077) 98%)'}}
               >
                 <div className="flex items-center gap-3 w-full">
-                  <Pencil size={15} className="text-[#5A5D72] flex-shrink-0" />
+                  <img src="/assets/images/svg/Pen-2-Gray.svg" size={15} className="text-[#5A5D72] flex-shrink-0" />
                   <input
                     type="text"
                     value={quantity || ''}
@@ -119,8 +119,8 @@ const AddExecutions = () => {
 
             {/* Total Cost Row */}
             <div className="flex items-center justify-between border-t border-[#2A2D40]/60 pt-4">
-              <span className="text-[#8A8D9F] text-[14px]">До оплати:</span>
-              <span className="text-[14px] font-bold text-[#F43F5E]">
+              <span className="text-[#8A8D9F] text-[12px]">До оплати:</span>
+              <span className="text-[12px] font-medium text-[#FF4973]">
                 {formatGram(totalCost)} GRAM
               </span>
             </div>
@@ -130,16 +130,17 @@ const AddExecutions = () => {
               <div className="flex flex-col gap-4 mt-2">
                 {/* Danger warning badge */}
                 <div 
-                  className="flex items-center gap-2.5 px-4 py-3 rounded-[12px] bg-[#E11D48]/10 border border-[#E11D48]/20"
+                  className="flex items-center gap-2.5 px-4 py-3 rounded-full"
+                  style={{ background: 'rgba(255, 73, 115, 0.1)'}}
                 >
-                  <AlertTriangle size={16} className="text-[#F43F5E] fill-[#F43F5E]/10" />
-                  <span className="text-[13px] font-bold text-[#F43F5E]">Недостатньо балансу</span>
+                  <img src="/assets/images/svg/danger.svg" />
+                  <span className="text-[12px] font-medium text-[#FFD7E0]">Недостатньо балансу</span>
                 </div>
 
                 {/* Shortage Row */}
-                <div className="flex items-center justify-between text-[14px]">
-                  <span className="text-[#8A8D9F]">Вам не вистачає:</span>
-                  <span className="font-bold text-[#F43F5E]">
+                <div className="flex items-center justify-between text-[12px]">
+                  <span className="text-[#ffffff]/40">Вам не вистачає:</span>
+                  <span className="font-medium text-[#FF4973]">
                     {formatGram(shortageAmount)} GRAM
                   </span>
                 </div>
@@ -147,7 +148,7 @@ const AddExecutions = () => {
                 {/* Redirect Button */}
                 <button
                   onClick={() => navigate('/deposit-balance')}
-                  className="w-full py-3.5 rounded-[14px] bg-[#87ADF0] text-[#0B0E21] font-bold text-[15px] transition-all active:scale-[0.98] hover:opacity-95 shadow-[0_0_15px_rgba(135,173,240,0.3)]"
+                  className="w-full py-3.5 rounded-full bg-[#87ADF0] text-[#0B0E21] font-medium text-[15px] transition-all active:scale-[0.98] hover:opacity-95 shadow-[0_0_15px_rgba(135,173,240,0.3)]"
                 >
                   Поповнити баланс
                 </button>

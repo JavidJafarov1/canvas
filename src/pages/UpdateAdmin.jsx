@@ -52,7 +52,7 @@ const UpdateAdmin = () => {
 
           {/* Code/Command Box */}
           <div className='w-full rounded-[14px] bg-[#87ADF0]/10 p-3 flex gap-3.5 items-start'>
-            <img src="assets/images/svg/lightbulb-simple copy.svg" />
+            <img src="assets/images/svg/lightbulb-simple (2).svg" />
             <div className='flex flex-col gap-1.5'>
               <span className='text-[12px] font-medium text-[#D7E6FF] tracking-wider'>Команда:</span>
               <span className='text-xs font-medium text-white leading-relaxed'>
